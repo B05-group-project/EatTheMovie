@@ -30,7 +30,6 @@ document.getElementById("search-input").addEventListener("keypress", function (e
   }
 });
 
-// 이전 페이지 버튼 클릭 시
 document.getElementById("prev-button").addEventListener("click", function () {
   if (page > 1) {
     page--;
@@ -65,8 +64,7 @@ function fetchMovies() {
 
 // 영화 검색해서 화면에 표시하는 함수
 function searchMovies(searchTerm) {
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=ko-KR&query=${searchTerm}&page=${page}`;
-  displayMovies(url);
+  window.location.href = `searchResult.html?word=${searchTerm}`;
 }
 
 // 영화를 가져와서 화면에 표시하는 공통 함수
