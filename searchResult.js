@@ -2,6 +2,7 @@
 const apiKey = "657ffd22014acc1e3761178b24efa6fe";
 let page = 1;
 let totalPages = 467;
+const word = new URL(location.href).searchParams.get("word");
 
 // 초기 영화 목록 표시
 fetchMovies();
@@ -15,6 +16,8 @@ function handleSearch() {
     fetchMovies();
   }
 }
+
+document.getElementById("search-input").value = word;
 
 // 검색 버튼 클릭 시 검색어 가져와서 영화 검색
 document.getElementById("search-button").addEventListener("click", function () {
@@ -61,7 +64,6 @@ document.addEventListener("click", function (event) {
 
 // 영화 가져와서 화면에 표시하는 함수
 function fetchMovies() {
-  const word = new URL(location.href).searchParams.get("word");
   const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=ko-KR&query=${word}&page=${page}`;
   displayMovies(url);
 }
