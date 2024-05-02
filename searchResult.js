@@ -19,6 +19,11 @@ function handleSearch() {
 
 document.getElementById("search-input").value = word;
 
+// 헤더 EatTheMovie 클릭 시 메인 페이지로 이동
+document.getElementById("header-title").addEventListener("click", function(){
+  window.location.href = `index.html`;
+});
+
 // 검색 버튼 클릭 시 검색어 가져와서 영화 검색
 document.getElementById("search-button").addEventListener("click", function () {
   handleSearch();

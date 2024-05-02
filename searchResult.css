@@ -33,6 +33,7 @@ body {
   font-size: 30px;
   font-weight: 700;
   color: yellow;
+  cursor: pointer;
 }
 
 #search-UI {
