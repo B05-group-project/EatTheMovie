@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="detail.css" />
+  </head>
+  <body>
+    <div class="modal-overlay hidden"></div>
+    <div class="detail-data-area">데이터 불러오는 공간</div>
+    <form class="comment-form">
+      <h2>댓글을 남겨주세요!</h2>
+      <div class="input-user-infomation">
+        <label for="writer">작성자:</label>
+        <input
+          class="writer-input"
+          id="writer"
+          type="text"
+          name="writer"
+          placeholder="작성자"
+        />
+        <label for="password">비밀번호:</label>
+        <input
+          class="password-input"
+          id="password"
+          type="password"
+          name="password"
+          placeholder="비밀번호"
+        />
+        <button class="write-btn">작성</button>
+      </div>
+
+      <textarea
+        class="comment-area"
+        name="comment"
+        cols="30"
+        rows="8"
+        placeholder="댓글을 작성해주세요!"
+      ></textarea>
+    </form>
+    <ul class="comment-list"></ul>
+
+    <div class="modal hidden">
+      <h2>댓글을 수정해주세요!</h2>
+      <label for="edit-writer">작성자</label>
+      <input
+        id="edit-writer"
+        type="text"
+        name="edit-writer"
+        placeholder="작성자"
+      />
+      <label for="edit-password">비밀번호</label>
+      <input
+        id="edit-password"
+        type="password"
+        name="edit-password"
+        placeholder="비밀번호"
+      />
+
+      <textarea
+        class="edit-comment-area"
+        id="edit-comment"
+        name="edit-comment-area"
+        cols="30"
+        rows="8"
+        placeholder="댓글을 작성해주세요!"
+      ></textarea>
+      <div class="btn-area">
+        <button class="write-btn" id="modal-edit-btn">수정하기</button>
+        <button class="write-btn" id="modal-cancel-btn">취소</button>
+      </div>
+    </div>
+
+    <script src="./detail.js"></script>
+  </body>
+</html>
