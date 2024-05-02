@@ -22,8 +22,8 @@ body {
 
   z-index: 100;
   height: 70px;
-  padding-left: 60px;
-  padding-right: 60px;
+  padding-left: 64px;
+  padding-right: 64px;
 
   color: white;
   background-color: black;
@@ -36,12 +36,12 @@ body {
 }
 
 #movie-container {
-  width: 1200px;
-  margin: 30px auto 0px auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  margin-top: 20px;
+
+  padding-left: 64px;
+  padding-right: 64px;
 }
 
 .movie {
@@ -64,16 +64,6 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-#pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-#pagination button {
-  margin: 0 5px;
 }
 
 #searchUI {

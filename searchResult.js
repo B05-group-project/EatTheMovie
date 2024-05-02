@@ -34,6 +34,24 @@ document
     }
   });
 
+// 검색창 애니메이션  
+const magnifier = document.querySelector(".magnifier");
+const searchBar = document.querySelector("#search-input");
+const cancleBtn = document.querySelector("#cancle-button");
+
+magnifier.addEventListener("mouseover", () => {
+  searchBar.classList.add("expand");
+  magnifier.classList.add("expand");
+  cancleBtn.style.visibility = 'visible';
+});
+
+cancleBtn.addEventListener("click", () => {
+  searchBar.classList.remove("expand");
+  magnifier.classList.remove("expand");
+  cancleBtn.style.visibility = "hidden";
+})
+
+
 // 영화 카드 클릭 시 id 나오기
 document.addEventListener("click", function (event) {
   const movieCard = event.target.closest(".movie");
@@ -90,19 +108,3 @@ async function fetchGetData(url) {
     });
   return APIData;
 }
-
-const magnifier = document.querySelector(".magnifier");
-const searchBar = document.querySelector("#search-input");
-const cancleBtn = document.querySelector("#cancle-button");
-
-magnifier.addEventListener("mouseover", () => {
-  searchBar.classList.add("expand");
-  magnifier.classList.add("expand");
-  cancleBtn.style.visibility = 'visible';
-});
-
-cancleBtn.addEventListener("click", () => {
-  searchBar.classList.remove("expand");
-  magnifier.classList.remove("expand");
-  cancleBtn.style.visibility = "hidden";
-})
