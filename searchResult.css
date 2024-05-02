@@ -134,6 +134,7 @@ body {
   border-radius: 5px;
   color: white;
   font-weight: bold;
+  cursor: pointer;
 }
 
 #movie-title{

@@ -67,7 +67,7 @@ document.addEventListener("click", function (event) {
   if (movieCard) {
     const movieId = movieCard.dataset.movieId;
     if (movieId) {
-      alert(`클릭한 영화의 ID는 ${movieId} 입니다.`);
+      window.location.href = `detail.html?id=${movieId}`;
     }
   }
 });
