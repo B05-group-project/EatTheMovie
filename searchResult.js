@@ -34,7 +34,7 @@ document
     }
   });
 
-// 검색창 애니메이션  
+// 검색창 애니메이션
 const magnifier = document.querySelector(".magnifier");
 const searchBar = document.querySelector("#search-input");
 const cancleBtn = document.querySelector("#cancle-button");
@@ -42,19 +42,19 @@ const cancleBtn = document.querySelector("#cancle-button");
 magnifier.addEventListener("mouseover", () => {
   searchBar.classList.add("expand");
   magnifier.classList.add("expand");
-  cancleBtn.style.visibility = 'visible';
+  cancleBtn.style.visibility = "visible";
 });
 
 cancleBtn.addEventListener("click", () => {
   searchBar.classList.remove("expand");
   magnifier.classList.remove("expand");
   cancleBtn.style.visibility = "hidden";
-})
+});
 
 // 검색어를 화면에 표시
-document.getElementById("search-word-wrapper").innerHTML=`
+document.getElementById("search-word-wrapper").innerHTML = `
   <div id="search-word">"${word}"</div>의 검색 결과
-`
+`;
 
 // 영화 카드 클릭 시 id 나오기
 document.addEventListener("click", function (event) {
@@ -84,14 +84,12 @@ async function displayMovies(url) {
   const data = await fetchGetData(url);
   const movies = data.results;
   movies.forEach((movie) => {
-    const { id, poster_path, title, overview, vote_average } = movie;
+    const { id, poster_path, title } = movie;
     const moviePosterPath = `https://image.tmdb.org/t/p/w500${poster_path}`;
     const movieCard = `
             <div class="movie" data-movie-id="${id}">
-              <img src="${moviePosterPath}">
-              <h2>${title}</h2>
-              <p>${overview}</p>
-              <p>평점: ${vote_average}</p>
+              <img src="${moviePosterPath}" onerror="this.onerror=null; this.src='icons/replaceMovie.png';">
+              ${poster_path ? `` : `<div id="movie-title">${title}</div>`}
             </div>
           `;
     document.getElementById("movie-container").innerHTML += movieCard;
