@@ -1,0 +1,82 @@
+
+
+let images = [
+  "./image/1Shawshank.jpg",
+  "./image/2The Apes.jpg",
+  "./image/3Ghost.jpg",
+  "./image/4When Morning.jpg",
+  "./image/5Inside.jpg",
+];
+
+
+
+function imageSlider(frame, images){
+  let currentIndex = 0;   //현재 이미지
+
+  //선택자 - 변수 객체 안에 선택자를 담은 형태
+  let slider = {
+      parent : frame,
+      images :frame.querySelector(".sliderImg"),
+      thumnails : frame.querySelector(".slideThumb"),
+      prevBtn : frame.querySelector(".sliderBtn .preview"),
+      nextBtn : frame.querySelector(".sliderBtn .nextview"),
+  }
+
+  //이미지 출력하기
+  slider.images.innerHTML = images.map((image, index) => {
+      return `<img src="${image}" alt="이미지${index}">`
+  }).join("");
+
+  //이미지 활성화(active)하기
+  let imageExp = slider.images.querySelectorAll("img");
+  imageExp[currentIndex].classList.add("active");
+
+  //썸네일 이미지 출력하기
+  slider.thumnails.innerHTML = slider.images.innerHTML;
+
+  //썸네일 활성화(active)하기
+  let thumnailExp = slider.thumnails.querySelectorAll("img");
+  thumnailExp[currentIndex].classList.add("active");
+
+  thumnailExp.forEach((el, i) => {
+      el.addEventListener("click", function(){
+          slider.thumnails.querySelector("img.active").classList.remove("active");
+          el.classList.add("active");
+
+          imageExp[currentIndex].classList.remove("active");
+          currentIndex = i;
+          imageExp[currentIndex].classList.add("active");
+      });
+  });
+
+  //왼쪽 버튼 클릭하기
+  slider.prevBtn.addEventListener("click", ()=>{
+      imageExp[currentIndex].classList.remove("active");
+      currentIndex--;
+
+      //0에서 빼도 음수가 안 나오도록
+      if(currentIndex < 0) currentIndex = images.length-1;
+
+      imageExp[currentIndex].classList.add("active");
+
+      //썸네일
+      slider.thumnails.querySelector("img.active").classList.remove("active");
+      thumnailExp[currentIndex].classList.add("active");
+  });
+
+  //오른쪽 버튼 클릭하기
+  slider.nextBtn.addEventListener("click", ()=>{
+      imageExp[currentIndex].classList.remove("active");
+
+      //index가 최대 개수 안 넘게 하기(여기서 currentIndex에 +1을 하기 때문에 ++ 안 함)
+      currentIndex = (currentIndex+1) % images.length;
+
+      imageExp[currentIndex].classList.add("active");
+
+      //썸네일
+      slider.thumnails.querySelector("img.active").classList.remove("active");
+      thumnailExp[currentIndex].classList.add("active");
+  });
+};
+
+imageSlider(document.querySelector(".sliderWrap"), images);
