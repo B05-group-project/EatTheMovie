@@ -29,13 +29,13 @@ body {
   background-color: black;
 }
 
-#headerTitle {
+#header-title {
   font-size: 30px;
   font-weight: 700;
   color: yellow;
 }
 
-#searchUI {
+#search-UI {
   display: flex;
   flex-direction: row;
   align-items: center;
