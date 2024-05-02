@@ -12,22 +12,22 @@
     <link rel="stylesheet" href="searchResult.css" />
   </head>
 
+  <header class="container">
+    <h1 id="headerTitle">EatTheMovie</h1>
+    <div id="searchUI">
+      <img src="icons/search.png" id="search-button" class="magnifier" />
+      <input
+        type="search"
+        id="search-input"
+        placeholder="영화를 검색하세요."
+        aria-label="search"
+        autocomplete="off"
+      />
+      <img src="icons//cancle.png" id="cancle-button" />
+    </div>
+  </header>
   <body>
-    <header class="container">
-      <h1 id="headerTitle">EatTheMovie</h1>
-      <div id="searchUI">
-        <img src="icons/search.png" id="search-button" class="magnifier" />
-        <input
-          type="search"
-          id="search-input"
-          placeholder="영화를 검색하세요."
-          aria-label="search"
-          autocomplete="off"
-        />
-        <img src="icons//cancle.png" id="cancle-button"/>
-      </div>
-    </header>
-    <div id="searchWord"></div>
+    <div id="search-word-wrapper"></div>
     <div class="movie-card" data-movie-id="1">
       <section id="movie-container"></section>
     </div>

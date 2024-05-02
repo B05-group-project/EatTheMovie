@@ -51,6 +51,10 @@ cancleBtn.addEventListener("click", () => {
   cancleBtn.style.visibility = "hidden";
 })
 
+// 검색어를 화면에 표시
+document.getElementById("search-word-wrapper").innerHTML=`
+  <div id="search-word">"${word}"</div>의 검색 결과
+`
 
 // 영화 카드 클릭 시 id 나오기
 document.addEventListener("click", function (event) {
