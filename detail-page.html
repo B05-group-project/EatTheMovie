@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(0, 0, 0);
+            
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            /* align-items: flex-start; */
+            flex-wrap: wrap;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .poster-container {
+            flex: 0 0 400px;
+            margin-right: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* background-color: green; */
+        }
+
+        .movie-poster {
+            /* max-width: 100%;
+            height: auto; */
+            width: 35vw;
+            border-radius: 10px;
+        }
+        .details-container {
+            background-color: aqua;
+            flex: 1;
+        }
+        h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #555;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #777;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            color: #777;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="뒤로가기" onclick="history.back();" />
+    <!-- <div class="container">
+        <div class="poster-container">
+            <img src="movie_poster.jpg" alt="Movie Poster" class="movie-poster">
+        </div>
+        <div class="details-container">
+            <h1>영화 제목</h1>
+            <h2>줄거리</h2>
+            <p>영화 줄거리를 여기에 입력하세요.</p>
+            <h2>출연</h2>
+            <ul>
+                <li>배우 1</li>
+                <li>배우 2</li>
+                <li>배우 3</li>
+            </ul>
+            <h2>감독</h2>
+            <p>감독 이름</p>
+            <h2>평점</h2>
+            <p>평균 평점: X.X/10</p>
+            <h2>장르</h2>
+            <p>장르 1, 장르 2, 장르 3</p>
+            <h2>개봉일</h2>
+            <p>YYYY년 MM월 DD일</p>
+        </div>
+    </div> -->
+    <script type="module" src="detail-page.js"></script>
+</body>
+</html>
