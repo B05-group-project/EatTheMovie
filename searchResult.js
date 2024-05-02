@@ -1,9 +1,7 @@
 //import apiKey from './key.js'; // API 키를 가져옵니다. (노력했는데 실패했어요..)
 const apiKey = "657ffd22014acc1e3761178b24efa6fe";
 
-//전역 변수 선언
 let page = 1;
-let totalPages = 467;
 const word = new URL(location.href).searchParams.get("word");
 
 // 초기 영화 목록 표시
@@ -35,22 +33,6 @@ document
       e.preventDefault(); // 폼 제출 방지
     }
   });
-
-// 이전 페이지 버튼 클릭 시
-document.getElementById("prev-button").addEventListener("click", function () {
-  if (page > 1) {
-    page--;
-    handleSearch();
-  }
-});
-
-// 다음 페이지 버튼 클릭 시
-document.getElementById("next-button").addEventListener("click", function () {
-  if (page < totalPages) {
-    page++;
-    handleSearch();
-  }
-});
 
 // 영화 카드 클릭 시 id 나오기
 document.addEventListener("click", function (event) {
