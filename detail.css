@@ -20,13 +20,6 @@ button {
   border-radius: 5px;
 }
 
-.detail-data-area {
-  margin: 0 auto;
-  width: 700px;
-  height: 500px;
-  background-color: whitesmoke;
-}
-
 .comment-form {
   box-sizing: border-box;
   background-color: var(--background--default);
