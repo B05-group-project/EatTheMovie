@@ -137,7 +137,7 @@ body {
   cursor: pointer;
 
   opacity: 0;
-  transition: opacity .35s 
+  transition: opacity 1s 
 }
 
 #movie-title{
@@ -155,5 +155,8 @@ body {
 
 .movie[data-scroll='in']{
   opacity: 1;
-  transition-duration: 1s;
+}
+
+.movie[data-scroll='out']{
+  opacity: 1;
 }
