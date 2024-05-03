@@ -86,7 +86,9 @@ dataArr.forEach((e, i) => {
     document.querySelector("#modal-edit-btn").addEventListener("click", () => {
       const newWriter = modal.querySelector("#edit-writer").value;
       const newPassword = modal.querySelector("#edit-password").value;
-      const newComment = modal.querySelector("#edit-comment").value;
+      const newComment = modal
+        .querySelector("#edit-comment")
+        .value.replaceAll(`\n`, `<br/>`);
 
       e.writer = newWriter;
       e.password = newPassword;
