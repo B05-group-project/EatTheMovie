@@ -4,23 +4,20 @@ const apiKey = "657ffd22014acc1e3761178b24efa6fe";
 let page = 1;
 const word = new URL(location.href).searchParams.get("word");
 
-// 초기 영화 목록 표시
-fetchMovies();
-
 //검색어를 처리하고 영화를 검색하거나 가져옴
 function handleSearch() {
   const searchTerm = document.getElementById("search-input").value; // 검색어 가져오기
   if (searchTerm) {
     searchMovies(searchTerm);
   } else {
-    fetchMovies();
+    alert("검색어를 입력해주세요!");
   }
 }
 
 document.getElementById("search-input").value = word;
 
 // 헤더 EatTheMovie 클릭 시 메인 페이지로 이동
-document.getElementById("header-title").addEventListener("click", function(){
+document.getElementById("header-title").addEventListener("click", function () {
   window.location.href = `index.html`;
 });
 
@@ -72,38 +69,9 @@ document.addEventListener("click", function (event) {
   }
 });
 
-// 영화 가져와서 화면에 표시하는 함수
-function fetchMovies() {
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=ko-KR&query=${word}&page=${page}`;
-  displayMovies(url);
-}
-
 // 영화 검색해서 화면에 표시하는 함수
 function searchMovies(searchTerm) {
   window.location.href = `searchResult.html?word=${searchTerm}`;
-}
-
-// 영화를 가져와서 화면에 표시하는 공통 함수
-async function displayMovies(url) {
-  document.getElementById("movie-container").innerHTML = ""; // 이전에 표시된 영화 목록 제거
-  const data = await fetchGetData(url);
-  const movies = data.results;
-  movies.forEach((movie) => {
-    const { id, poster_path, title } = movie;
-    const moviePosterPath = `https://image.tmdb.org/t/p/w500${poster_path}`;
-    const movieCard = `
-            <div class="movie" data-movie-id="${id}">
-              <img src="${poster_path? moviePosterPath: 'icons/replaceMovie.png'}" onerror="this.onerror=null; this.src='icons/replaceMovie.png';">
-              ${poster_path ? `` : `<div id="movie-title">${title}</div>`}
-            </div>
-          `;
-    document.getElementById("movie-container").innerHTML += movieCard;
-  });
-  
-  ScrollOut({
-    targets: ".movie",
-    once: true,
-  });
 }
 
 async function fetchGetData(url) {
@@ -120,3 +88,56 @@ async function fetchGetData(url) {
     });
   return APIData;
 }
+
+const listEnd = document.getElementById("movie-end");
+const movieContainer = document.getElementById("movie-container");
+
+const options = {
+  root: null, // 뷰포트를 기준으로 타켓의 가시성 검사
+  rootMargin: "0px 0px 0px 0px", // 확장 또는 축소 X
+  threshold: 0, // 타켓의 가시성 0%일 때 옵저버 실행
+};
+
+const onIntersect = (entries, observer) => {
+  let url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=ko-KR&query=${word}&page=${page}`;
+  entries.forEach(async (entry) => {
+    if (entry.isIntersecting) {
+      page++;
+      console.log("page: " + page);
+      const data = await fetchGetData(url);
+      const movies = data.results;
+      if (movies.length < 1) {
+        if (page === 1)
+          document.getElementById("movie-container").innerHTML = "";
+        observer.unobserve(listEnd); // 특정 대상(요소)에 대한 관찰 중단
+        return;
+      }
+
+      movieContainer.insertAdjacentHTML(
+        "beforeend",
+        movies
+          .map((movie) => {
+            const { id, poster_path, title } = movie;
+            const moviePosterPath = `https://image.tmdb.org/t/p/w500${poster_path}`;
+            return `
+            <div class="movie" data-movie-id="${id}">
+              <img src="${
+                poster_path ? moviePosterPath : "icons/replaceMovie.png"
+              }" onerror="this.onerror=null; this.src='icons/replaceMovie.png';">
+              ${poster_path ? `` : `<div id="movie-title">${title}</div>`}
+            </div>
+          `;
+          })
+          .join("")
+      );
+
+      ScrollOut({
+        targets: ".movie",
+        once: true,
+      });
+    }
+  });
+};
+
+const observer = new IntersectionObserver(onIntersect, options);
+observer.observe(listEnd);
