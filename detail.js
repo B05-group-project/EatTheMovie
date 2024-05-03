@@ -1,11 +1,26 @@
 const commentList = document.querySelector(".comment-list");
+const URLSearch = new URLSearchParams(location.search);
+const movieId = URLSearch.get("id"); //type: string, URL(query)로 영화 id를 받아옴
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (!movieId) {
+    return;
+  }
+  let commentArr = localStorage.getItem(movieId);
+  if (!commentArr) {
+    localStorage.setItem(movieId, "[]");
+    location.reload();
+  }
+});
+
+let dataArr = JSON.parse(localStorage.getItem(movieId));
 
 //form submit 이벤트, 유저에게 입력받은 값을 localstorage에 저장
 document.addEventListener("submit", (e) => {
   e.preventDefault();
-  const writer = e.target[0].value; //writer 입력값
-  const password = e.target[1].value; //password 입력값
-  const comment = e.target[3].value; //comment 입력값 (댓글내용)
+  const writer = document.querySelector("#writer").value; //writer 입력값
+  const password = document.querySelector("#password").value; //password 입력값
+  const comment = document.querySelector("#comment").value; //comment 입력값 (댓글내용)
 
   // 입력값 없으면 alert
   if (!writer) {
@@ -15,40 +30,30 @@ document.addEventListener("submit", (e) => {
   } else if (!comment) {
     return alert("글내용을 입력해주세요");
   }
+  // let dataArr = [...JSON.parse(localStorage.getItem(movieId))];
+  dataArr.push({
+    writer: writer,
+    password: password,
+    comment: comment,
+  });
 
   // localstorage에 저장
-  localStorage.setItem(
-    localStorage.length,
-    JSON.stringify({ writer: writer, password: password, comment: comment })
-  );
+  localStorage.setItem(movieId, JSON.stringify(dataArr));
 
   alert("작성 완료!");
   window.location.reload();
 });
 
-let arr = [];
-for (let key in localStorage) {
-  if (!localStorage.hasOwnProperty(key)) {
-    continue; // setItem, getItem 등의 키를 건너뜁니다.
-  }
-  arr.push(key);
-}
-arr.sort((a, b) => {
-  return a - b;
-});
-
 //localstrage에서 Item을 가져와서 댓글형태로 화면에 뿌림
-arr.forEach((e, i) => {
-  let item = JSON.parse(localStorage.getItem(e));
-
+dataArr.forEach((e, i) => {
   const li = document.createElement("li");
   li.className = "comment-item";
   li.id = "comment" + i;
   li.innerHTML = `
         <div class="comment-button-area">
-        <h4>${item.writer}</h4> <button class=edit-btn id=edit${i}>수정</button> <button class=delete-btn id=del${i}>🗑️</button>
+        <h4>${e.writer}</h4> <button class=edit-btn id=edit${i}>수정</button> <button class=delete-btn id=del${i}>🗑️</button>
         </div>
-        <p>${item.comment}</p>
+        <p>${e.comment}</p>
   `;
   commentList.append(li);
 
@@ -59,7 +64,7 @@ arr.forEach((e, i) => {
     if (typeof inputPassword == "object") {
       return;
     }
-    if (inputPassword !== item.password) {
+    if (inputPassword !== e.password) {
       return alert("비밀번호가 다릅니다!");
     }
 
@@ -69,23 +74,21 @@ arr.forEach((e, i) => {
     let modal = document.querySelector(".modal");
     modal.className = "modal";
 
-    modal.querySelector("#edit-writer").value = item.writer;
-    modal.querySelector("#edit-password").value = item.password;
-    modal.querySelector("#edit-comment").value = item.comment;
+    modal.querySelector("#edit-writer").value = e.writer;
+    modal.querySelector("#edit-password").value = e.password;
+    modal.querySelector("#edit-comment").value = e.comment;
 
     document.querySelector("#modal-edit-btn").addEventListener("click", () => {
       const newWriter = modal.querySelector("#edit-writer").value;
       const newPassword = modal.querySelector("#edit-password").value;
       const newComment = modal.querySelector("#edit-comment").value;
 
-      localStorage.setItem(
-        e,
-        JSON.stringify({
-          writer: newWriter,
-          password: newPassword,
-          comment: newComment,
-        })
-      );
+      e.writer = newWriter;
+      e.password = newPassword;
+      e.comment = newComment;
+      dataArr[i] = e;
+      localStorage.setItem(movieId, JSON.stringify(dataArr));
+
       alert("수정완료!");
       document.querySelector(".modal-overlay").className =
         "modal-overlay hidden";
@@ -100,10 +103,11 @@ arr.forEach((e, i) => {
     if (typeof inputPassword == "object") {
       return;
     }
-    if (inputPassword !== item.password) {
+    if (inputPassword !== e.password) {
       return alert("비밀번호가 다릅니다!");
     }
-    localStorage.removeItem(i);
+    dataArr.splice(i, 1);
+    localStorage.setItem(movieId, JSON.stringify(dataArr));
     li.remove();
     alert("삭제완료!");
   });
