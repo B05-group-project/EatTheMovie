@@ -3,7 +3,7 @@ const apiKey = "657ffd22014acc1e3761178b24efa6fe";
 let page = 1;
 const options = {
   root: null, // 뷰포트를 기준으로 타켓의 가시성 검사
-  rootMargin: "0px 0px 0px 0px", // 확장 또는 축소 X
+  rootMargin: "200px", // 확장 또는 축소 X
   threshold: 0, // 타켓의 가시성 0%일 때 옵저버 실행
 };
 const word = new URL(location.href).searchParams.get("word");
@@ -120,6 +120,7 @@ function onIntersect(entries, observer) {
       const data = await fetchGetData(url);
       const movies = data.results;
 
+      movies.sort((a, b) => b['vote_average'] - a['vote_average']);
       //탈출 조건
       if (movies.length < 1) {
         observer.unobserve($listEnd);
@@ -142,6 +143,7 @@ function onIntersect(entries, observer) {
 }
 
 function makeMovieCard(movieInfo) {
+  console.log(movieInfo)
   const { id, poster_path, title } = movieInfo;
   const moviePosterPath = `https://image.tmdb.org/t/p/w500${poster_path}`;
 
