@@ -1,7 +1,7 @@
 const commentList = document.querySelector(".comment-list");
 const URLSearch = new URLSearchParams(location.search);
 const movieId = URLSearch.get("id"); //type: string, URL(query)로 영화 id를 받아옴
-
+console.log(JSON.parse(localStorage.getItem(movieId)));
 document.addEventListener("DOMContentLoaded", () => {
   if (!movieId) {
     return;
@@ -20,7 +20,9 @@ document.addEventListener("submit", (e) => {
   e.preventDefault();
   const writer = document.querySelector("#writer").value; //writer 입력값
   const password = document.querySelector("#password").value; //password 입력값
-  const comment = document.querySelector("#comment").value; //comment 입력값 (댓글내용)
+  const comment = document
+    .querySelector("#comment")
+    .value.replaceAll(`\n`, `<br/>`); //comment 입력값 (댓글내용)
 
   // 입력값 없으면 alert
   if (!writer) {
@@ -76,7 +78,10 @@ dataArr.forEach((e, i) => {
 
     modal.querySelector("#edit-writer").value = e.writer;
     modal.querySelector("#edit-password").value = e.password;
-    modal.querySelector("#edit-comment").value = e.comment;
+    modal.querySelector("#edit-comment").value = e.comment.replaceAll(
+      `<br/>`,
+      `\n`
+    );
 
     document.querySelector("#modal-edit-btn").addEventListener("click", () => {
       const newWriter = modal.querySelector("#edit-writer").value;
