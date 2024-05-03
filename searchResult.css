@@ -156,7 +156,3 @@ body {
 .movie[data-scroll='in']{
   opacity: 1;
 }
-
-.movie[data-scroll='out']{
-  opacity: 1;
-}
