@@ -93,11 +93,16 @@ async function displayMovies(url) {
     const moviePosterPath = `https://image.tmdb.org/t/p/w500${poster_path}`;
     const movieCard = `
             <div class="movie" data-movie-id="${id}">
-              <img src="${moviePosterPath}" onerror="this.onerror=null; this.src='icons/replaceMovie.png';">
+              <img src="${poster_path? moviePosterPath: 'icons/replaceMovie.png'}" onerror="this.onerror=null; this.src='icons/replaceMovie.png';">
               ${poster_path ? `` : `<div id="movie-title">${title}</div>`}
             </div>
           `;
     document.getElementById("movie-container").innerHTML += movieCard;
+  });
+  
+  ScrollOut({
+    targets: ".movie",
+    once: true,
   });
 }
 
