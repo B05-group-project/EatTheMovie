@@ -7,6 +7,7 @@ const options = {
   threshold: 0, // 타켓의 가시성 0%일 때 옵저버 실행
 };
 const word = new URL(location.href).searchParams.get("word");
+const language = localStorage.getItem("language");
 
 const $headerTitle = document.getElementById("header-title");
 const $magnifier = document.querySelector(".magnifier");
@@ -14,6 +15,7 @@ const $searchBar = document.querySelector("#search-input");
 const $searchBtn = document.getElementById("search-button");
 const $cancleBtn = document.querySelector("#cancle-button");
 const $wordWrapper = document.getElementById("search-word-wrapper");
+const $languageFilter = document.getElementById("language-filter");
 const $movieContainer = document.getElementById("movie-container");
 const $listEnd = document.getElementById("movie-end");
 
@@ -26,6 +28,8 @@ function addHeaderFunction() {
 
 function addMainFunction() {
   showSearchWord();
+  setLanguageDefault();
+  setLanguageFilterFunction();
   setMovieClick();
 }
 
@@ -83,6 +87,18 @@ function showSearchWord() {
   `;
 }
 
+function setLanguageDefault(){
+  $languageFilter.value = language;
+}
+
+function setLanguageFilterFunction(){
+  $languageFilter.addEventListener('change', ()=>{
+    const value = $languageFilter.options[$languageFilter.selectedIndex].value;
+    localStorage.setItem("language", value);
+    window.location.reload();
+  })
+}
+
 function setMovieClick() {
   document.addEventListener("click", (event) => {
     const movieCard = event.target.closest(".movie");
@@ -113,14 +129,13 @@ async function fetchGetData(url) {
 }
 
 function onIntersect(entries, observer) {
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=ko-KR&query=${word}&page=${page}`;
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=${language?language:`ko-KR`}&query=${word}&page=${page}`;
   entries.forEach(async (entry) => {
     if (entry.isIntersecting) {
       page++;
       const data = await fetchGetData(url);
       const movies = data.results;
 
-      movies.sort((a, b) => b['vote_average'] - a['vote_average']);
       //탈출 조건
       if (movies.length < 1) {
         observer.unobserve($listEnd);
@@ -143,7 +158,6 @@ function onIntersect(entries, observer) {
 }
 
 function makeMovieCard(movieInfo) {
-  console.log(movieInfo)
   const { id, poster_path, title } = movieInfo;
   const moviePosterPath = `https://image.tmdb.org/t/p/w500${poster_path}`;
 

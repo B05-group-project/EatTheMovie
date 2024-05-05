@@ -24,10 +24,22 @@
         autocomplete="off"
       />
       <img src="icons/cancle.png" id="cancle-button" />
+      <div id="language-filter-wrapper">
+        <select id="language-filter">
+          <option value="ko-KR">한국어</option>
+          <option value="en-US">English</option>
+        </select>
+      </div>
     </div>
   </header>
   <body>
     <div id="search-word-wrapper"></div>
+    <!-- <div id="search-filter-wrapper">
+      <select id="search-filter">
+        <option value='popularity'>인기순</option>
+        <option value='rating'>평점순</option>
+      </select>
+    </div> -->
     <section id="movie-container"></section>
     <div id="movie-end"></div>
     <script src="searchResult.js"></script>

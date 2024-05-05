@@ -46,7 +46,7 @@ body {
 #search-input {
   visibility: hidden;
   position: absolute;
-  right: 120px;
+  right: 160px;
   height: 40px;
   width: 0px;
 
@@ -73,7 +73,7 @@ body {
 
 .magnifier {
   position: absolute;
-  right: 120px;
+  right: 160px;
 
   height: 30px;
   width: 30px;
@@ -85,13 +85,12 @@ body {
 }
 
 .magnifier.expand {
-  right: 340px;
+  right: 380px;
 }
 
 #cancle-button {
   visibility: hidden;
-
-  margin-right: 40px;
+  margin-right: 10px;
   height: 15px;
   width: 15px;
 
@@ -113,6 +112,13 @@ body {
 #search-word {
   font-weight: bold;
   color: white;
+}
+
+#language-filter{
+
+  background-color: black;
+  color: white;
+  border: none;
 }
 
 #movie-container {
@@ -156,3 +162,4 @@ body {
 .movie[data-scroll='in']{
   opacity: 1;
 }
+
