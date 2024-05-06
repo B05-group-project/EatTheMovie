@@ -28,6 +28,8 @@ document.addEventListener("submit", (e) => {
   let minutes;
   if (String(date.getMinutes()).length == 1) {
     minutes = "0" + date.getMinutes();
+  } else {
+    minutes = date.getMinutes();
   }
 
   const preDate = `${date.getFullYear()}/${
