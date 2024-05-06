@@ -141,9 +141,6 @@ body {
   color: white;
   font-weight: bold;
   cursor: pointer;
-
-  opacity: 0;
-  transition: opacity 1s 
 }
 
 #movie-title{
@@ -157,6 +154,11 @@ body {
 .movie img {
   width: 100%;
   height: auto;
+}
+
+.movie[data-scroll]{
+  opacity: 0;
+  transition: opacity 1s 
 }
 
 .movie[data-scroll='in']{
