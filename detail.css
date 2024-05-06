@@ -1,3 +1,4 @@
+/*자주 사용하는 색상을 변수에 담은코드*/
 :root {
   --border--1px--black: 1px solid black;
   --border--1px--white: 1px solid white;
@@ -12,7 +13,7 @@ body {
   background-color: black;
   overflow-y: auto;
 }
-
+/*페이지 내 모든 버튼에 기본 색상+테두리+배경색*/
 button {
   background-color: var(--background--default);
   color: var(--text--default);
@@ -60,8 +61,6 @@ button {
   margin-right: 10px;
 }
 .write-btn {
-  /*  margin-left: auto; */
-  /* align-self: end; */
   margin-left: auto;
   width: 70px;
   height: 32px;
@@ -78,6 +77,24 @@ button:active {
   background-color: var(--background--default);
   color: var(--text--default);
 }
+.comment-nav {
+  width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: end;
+}
+.pre-date {
+  align-content: center;
+  margin-right: 10px;
+}
+.comment-nav > button {
+  color: var(--text-default);
+  width: 70px;
+}
+.comment-nav > button:hover {
+  color: var(--text--default--hover);
+}
+
 .comment-area {
   margin: 0px 10px;
   width: 750px;
@@ -107,9 +124,8 @@ button:active {
   border: var(--border--btn--white);
   border-radius: 5px;
 }
-.comment-item > div > h4 {
+.comment-item > .comment-title-area > h4 {
   margin: 0;
-
   align-content: center;
   margin-right: auto;
 }
@@ -122,12 +138,20 @@ button:active {
   height: 100px;
   border-top: var(--border--1px--white);
 }
-.comment-item > div {
+.comment-item > .comment-title-area {
   align-self: center;
   margin-top: 10px;
   width: 95%;
   display: flex;
   justify-content: end;
+}
+.comment-num {
+  align-self: center;
+  text-align: center;
+  padding-right: 8px;
+  margin-right: 8px;
+  color: #bfbfbf;
+  border-right: 1px solid rgba(158, 158, 158, 0.5);
 }
 .edit-btn {
   width: 70px;
@@ -151,7 +175,7 @@ button:active {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 600px;
-  height: 500px;
+  height: 400px;
   z-index: 1000;
   border-radius: 20px;
   display: flex;
@@ -164,10 +188,14 @@ button:active {
   text-align: center;
   margin-bottom: 50px;
 }
-.modal > label {
-  margin-top: 10px;
+.modal-input-box {
+  display: flex;
 }
-.modal > input {
+.modal > .modal-input-box > label {
+  margin-right: 5px;
+}
+.modal > .modal-input-box > input {
+  margin-right: 20px;
   border: none;
   border-radius: 3px;
   height: 24px;
@@ -179,12 +207,13 @@ button:active {
 }
 .modal > .btn-area {
   width: 100%;
-  margin-top: auto;
+  margin: auto 0;
   display: flex;
   flex-direction: column;
 }
 .modal > .btn-area > button {
   width: 100%;
+  margin-top: 10px;
 }
 .modal-overlay {
   position: fixed;
@@ -195,7 +224,7 @@ button:active {
   backdrop-filter: blur(10px);
   transition: all 0.3s;
 }
-
+/*모달창 숨기는 class명*/
 .hidden {
   opacity: 0;
   visibility: hidden;

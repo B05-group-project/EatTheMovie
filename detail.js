@@ -1,7 +1,7 @@
 const commentList = document.querySelector(".comment-list");
 const URLSearch = new URLSearchParams(location.search);
 const movieId = URLSearch.get("id"); //type: string, URL(query)로 영화 id를 받아옴
-console.log(JSON.parse(localStorage.getItem(movieId)));
+
 document.addEventListener("DOMContentLoaded", () => {
   if (!movieId) {
     return;
@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+//로컬스토리지에서 영화id에 맞는 배열을 가져와서 변수에 담는 코드
 let dataArr = JSON.parse(localStorage.getItem(movieId));
 
 //form submit 이벤트, 유저에게 입력받은 값을 localstorage에 저장
@@ -23,6 +24,15 @@ document.addEventListener("submit", (e) => {
   const comment = document
     .querySelector("#comment")
     .value.replaceAll(`\n`, `<br/>`); //comment 입력값 (댓글내용)
+  const date = new Date();
+  let minutes;
+  if (String(date.getMinutes()).length == 1) {
+    minutes = "0" + date.getMinutes();
+  }
+
+  const preDate = `${date.getFullYear()}/${
+    date.getMonth() + 1
+  }/${date.getDate()} ${date.getHours()}:${minutes}`;
 
   // 입력값 없으면 alert
   if (!writer) {
@@ -37,6 +47,7 @@ document.addEventListener("submit", (e) => {
     writer: writer,
     password: password,
     comment: comment,
+    date: preDate,
   });
 
   // localstorage에 저장
@@ -52,12 +63,12 @@ dataArr.forEach((e, i) => {
   li.className = "comment-item";
   li.id = "comment" + i;
   li.innerHTML = `
-        <div class="comment-button-area">
-        <h4>${e.writer}</h4> <button class=edit-btn id=edit${i}>수정</button> <button class=delete-btn id=del${i}>🗑️</button>
+        <div class="comment-title-area">
+        <span class=comment-num>${i}</span><h4>${e.writer}</h4> <span class=pre-date>${e.date}</span><button class=edit-btn id=edit${i}>수정</button> <button class=delete-btn id=del${i}>🗑️</button>
         </div>
         <p>${e.comment}</p>
   `;
-  commentList.append(li);
+  commentList.prepend(li);
 
   //수정버튼 클릭시 발생하는 이벤트(수정 양식 모달창 띄움)
   document.querySelector(`#edit${i}`).addEventListener("click", () => {
@@ -113,10 +124,12 @@ dataArr.forEach((e, i) => {
     if (inputPassword !== e.password) {
       return alert("비밀번호가 다릅니다!");
     }
+
     dataArr.splice(i, 1);
     localStorage.setItem(movieId, JSON.stringify(dataArr));
     li.remove();
     alert("삭제완료!");
+    location.reload();
   });
 });
 
@@ -126,4 +139,17 @@ document.querySelector("#modal-cancel-btn").addEventListener("click", () => {
     document.querySelector(".modal-overlay").className = "modal-overlay hidden";
     document.querySelector(".modal").className = "modal hidden";
   }
+});
+
+//과거순으로 바꾸는 버튼
+document.querySelector(".sort-latest-btn").addEventListener("click", () => {
+  let liNodes = [...document.querySelectorAll(".comment-item")].reverse();
+  let liNode = document.querySelectorAll(".comment-item");
+  let liList = document.querySelector(".comment-list");
+  liNode.forEach((e) => {
+    e.remove();
+  });
+  liNodes.forEach((e) => {
+    liList.append(e);
+  });
 });

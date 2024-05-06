@@ -39,25 +39,30 @@
         placeholder="댓글을 작성해주세요!"
       ></textarea>
     </form>
+    <div class="comment-nav">
+      <button class="sort-latest-btn">과거순</button>
+    </div>
+
     <ul class="comment-list"></ul>
 
     <div class="modal hidden">
       <h2>댓글을 수정해주세요!</h2>
-      <label for="edit-writer">작성자</label>
-      <input
-        id="edit-writer"
-        type="text"
-        name="edit-writer"
-        placeholder="작성자"
-      />
-      <label for="edit-password">비밀번호</label>
-      <input
-        id="edit-password"
-        type="password"
-        name="edit-password"
-        placeholder="비밀번호"
-      />
-
+      <div class="modal-input-box">
+        <label for="edit-writer">작성자:</label>
+        <input
+          id="edit-writer"
+          type="text"
+          name="edit-writer"
+          placeholder="작성자"
+        />
+        <label for="edit-password">비밀번호:</label>
+        <input
+          id="edit-password"
+          type="password"
+          name="edit-password"
+          placeholder="비밀번호"
+        />
+      </div>
       <textarea
         class="edit-comment-area"
         id="edit-comment"
