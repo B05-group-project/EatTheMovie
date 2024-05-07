@@ -4,13 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
-    
+
     <title>Eat the moive</title>
   </head>
-
+  <header class="header-container">
+    <h1 id="header-title">EatTheMovie</h1>
+    <div id="search-UI">
+      <img src="icons/search.png" id="search-button" class="magnifier" />
+      <input
+        type="search"
+        id="search-input"
+        placeholder="영화를 검색하세요."
+        aria-label="search"
+        autocomplete="off"
+      />
+      <img src="icons/cancle.png" id="cancle-button" />
+      <div id="language-filter-wrapper">
+        <select id="language-filter">
+          <option value="ko-KR">한국어</option>
+          <option value="en-US">English</option>
+        </select>
+      </div>
+    </div>
+  </header>
   <body>
     <!-- 비디오 부분 div로 묶기 -->
-    <div class="video-wrapper" style="display: flex; align-items: center; justify-content: center">
+    <div
+      class="video-wrapper"
+      style="display: flex; align-items: center; justify-content: center"
+    >
       <h3 id="video-title">개봉 예정 영화</h3>
       <!-- 슬라이드 이미지 -->
       <div class="wrapper">
