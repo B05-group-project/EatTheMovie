@@ -26,7 +26,7 @@ function scrollLeft(containerId, leftButtonId, rightButtonId) {
     document.getElementById(leftButtonId).addEventListener('click', function () {
         // 스크롤이 맨 앞에 도달하면 뒤로 이동
         if (container.scrollLeft === 0) {
-            container.scrollLeft = container.scrollWidth - container.clientWidth;
+            container.scrollLeft = container.scrollWidth - container.clientWidth - 1;
         } else {
             container.scrollLeft -= unit;
         }
@@ -43,6 +43,7 @@ function scrollLeft(containerId, leftButtonId, rightButtonId) {
         }
     });
 }
+
 // 영화 가져와서 화면에 표시하는 함수
 function TopRated() {
     const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=ko-KR&page=${page['top-rated']}`;
@@ -69,15 +70,24 @@ function displayMovies(url, containerId, category) {
         .then((data) => {
             const movies = data.results;
             movies.forEach((movie) => {
-                const { poster_path } = movie;
+                const { id, poster_path } = movie;
+                const movieId = id;
                 const moviePosterPath = `https://image.tmdb.org/t/p/w500${poster_path}`;
                 const movieCard = `
-                    <div class="slider-card">
+                <div class="slider-card" data-movie-id=${movieId}>
                         <img src="${moviePosterPath}">
                     </div>
                 `;
                 container.innerHTML += movieCard; // 해당하는 섹션의 컨테이너에 영화 카드를 추가합니다.
             });
+
+            container.querySelectorAll('.slider-card').forEach((card) => {
+                card.addEventListener('click', function () {
+                    const movieId = this.dataset.movieId;
+                    window.location.href = `detail.html?id=${movieId}`;
+                });
+            });
+
             page[category]++; // 페이지 증가
             if (page[category] <= total_pages[category]) {
                 // 페이지가 총 페이지 수를 넘지 않으면 다음 페이지 불러오기
