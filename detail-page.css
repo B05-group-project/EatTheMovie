@@ -69,4 +69,9 @@ input.back-btn {
   border: 0;
   margin-top: 10px;
   margin-left: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+input.back-btn:hover {
+  transform: scale(1.1);
 }
