@@ -1,0 +1,231 @@
+/*자주 사용하는 색상을 변수에 담은코드*/
+:root {
+  --border--1px--black: 1px solid black;
+  --border--1px--white: 1px solid white;
+  --border--2px--white: 2px solid white;
+  --background--default: #2e2e2e;
+  --background--default--hover: white;
+  --text-default: white;
+  --text--default--hover: #2e2e2e;
+}
+
+body {
+  background-color: black;
+  overflow-y: auto;
+}
+/*페이지 내 모든 버튼에 기본 색상+테두리+배경색*/
+button {
+  background-color: var(--background--default);
+  color: var(--text--default);
+  border: var(--border--1px--white);
+  border-radius: 5px;
+}
+
+.comment-form {
+  box-sizing: border-box;
+  background-color: var(--background--default);
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  height: 230px;
+  width: 800px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding-bottom: 15px;
+  color: var(--text-default);
+}
+
+.comment-form > h2 {
+  margin: 0;
+  margin-top: 5px;
+  text-align: center;
+}
+.input-user-infomation {
+  width: 750px;
+  margin: 10px 10px;
+  align-self: center;
+  display: flex;
+}
+.writer-input {
+  border: var(--border--input--black);
+  height: 24px;
+  border-radius: 3px;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+.password-input {
+  border: var(--border--input--black);
+  border-radius: 3px;
+  height: 24px;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+.write-btn {
+  margin-left: auto;
+  width: 70px;
+  height: 32px;
+}
+
+button:hover {
+  border: var(--border--1px--black);
+  border-radius: 5px;
+  background-color: var(--background--default--hover);
+  color: var(--text--default--hover);
+}
+button:active {
+  border: var(--border--1px--white);
+  background-color: var(--background--default);
+  color: var(--text--default);
+}
+.comment-nav {
+  width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: end;
+}
+.pre-date {
+  align-content: center;
+  margin-right: 10px;
+}
+.comment-nav > button {
+  color: var(--text-default);
+  width: 70px;
+}
+.comment-nav > button:hover {
+  color: var(--text--default--hover);
+}
+
+.comment-area {
+  margin: 0px 10px;
+  width: 750px;
+  resize: none;
+  align-self: center;
+  border: var(--border--2px--white);
+  border-radius: 5px;
+}
+
+.comment-list {
+  margin: 0 auto;
+  padding: 0;
+  background-color: #bfbfbf;
+  width: 800px;
+  color: var(--background--default--hover);
+}
+
+.comment-list > li {
+  margin: 30px auto;
+  padding-bottom: 10px;
+  width: 800px;
+  height: 200px;
+  list-style: none;
+  background-color: var(--text--default--hover);
+  display: flex;
+  flex-direction: column;
+  border: var(--border--btn--white);
+  border-radius: 5px;
+}
+.comment-item > .comment-title-area > h4 {
+  margin: 0;
+  align-content: center;
+  margin-right: auto;
+}
+.comment-item > p {
+  box-sizing: border-box;
+  padding: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 760px;
+  height: 100px;
+  border-top: var(--border--1px--white);
+}
+.comment-item > .comment-title-area {
+  align-self: center;
+  margin-top: 10px;
+  width: 95%;
+  display: flex;
+  justify-content: end;
+}
+.comment-num {
+  align-self: center;
+  text-align: center;
+  padding-right: 8px;
+  margin-right: 8px;
+  color: #bfbfbf;
+  border-right: 1px solid rgba(158, 158, 158, 0.5);
+}
+.edit-btn {
+  width: 70px;
+}
+.delete-btn {
+  margin-left: 15px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  text-align: center;
+  font-size: large;
+  border-radius: 16px;
+}
+.delete-btn:hover {
+  border-radius: 16px;
+}
+.modal {
+  position: fixed;
+  background-color: var(--background--default);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  z-index: 1000;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-default);
+  padding: 10px;
+}
+
+.modal > h2 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.modal-input-box {
+  display: flex;
+}
+.modal > .modal-input-box > label {
+  margin-right: 5px;
+}
+.modal > .modal-input-box > input {
+  margin-right: 20px;
+  border: none;
+  border-radius: 3px;
+  height: 24px;
+}
+.modal > textarea {
+  margin-top: 30px;
+  resize: none;
+  border-radius: 5px;
+}
+.modal > .btn-area {
+  width: 100%;
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+}
+.modal > .btn-area > button {
+  width: 100%;
+  margin-top: 10px;
+}
+.modal-overlay {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
+}
+/*모달창 숨기는 class명*/
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}

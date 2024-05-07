@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="video.css">
+  <title>슬라이드</title>
+</head>
+
+<body>
+  <!-- 슬라이드 이미지 -->
+  <div class="wrapper">
+    <!-- 슬라이드 이전 버튼 -->
+    <i id="left" class="fa-solid fa-angle-left">PREV</i>
+        <div class="carousel">
+          <img data-key="J_xNjNeCSKE?si=OAk4WdZ4RbvDCBPb" class="image" id="img" src="image/1Shawshank.jpg" alt="img"
+            draggable="false">
+          <img data-key="jTgNhvNhcP4?si=1Oea-iWEBh4kXwQk" class="image" id="img" src="image/2The Apes.jpg" alt="img"
+            draggable="false">
+          <img data-key="QiBLSEfUn3M?si=QDfTsvtl-qrxV-Q2" class="image" id="img" src="image/3Ghost.jpg" alt="img"
+            draggable="false">
+          <img data-key="ChEEkbARqM4?si=u6cQPMOUFsHzEoxx" class="image" id="img" src="image/4When Morning.jpg" alt="img"
+            draggable="false">
+          <img data-key="EiCmnIaj4u8?si=YOdhzRyMvqyZYXB9" class="image" id="img" src="image/5Inside.jpg" alt="img"
+            draggable="false">
+          <img data-key="rOTsNNf2Hj4?si=mMornnugutiGhNIZ" class="image" id="img" src="image/6She.jpg" alt="img"
+            draggable="false">
+        </div>
+        <!-- 슬라이드 다음 버튼 -->
+        <i id="right" class="fa-solid fa-angle-right">NEXT</i>
+  </div>
+
+  <!-- 모달창 -->
+  <div class="modal-bg hidden">
+    <div class="modal">
+
+      <iframe class="video" width="100%" height="100%" src="https://www.youtube.com/embed/" title="YouTube video player"
+        frameborder="1"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <button class="button-close gray">Close</button>
+  </div>
+
+  <script src="video.js"></script>
+</body>
+
+</html>
