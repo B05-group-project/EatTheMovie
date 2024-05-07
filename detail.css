@@ -141,6 +141,7 @@ button:active {
 .comment-item > .comment-title-area {
   align-self: center;
   margin-top: 10px;
+  margin-bottom: 10px;
   width: 95%;
   display: flex;
   justify-content: end;
