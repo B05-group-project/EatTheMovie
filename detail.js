@@ -1,7 +1,13 @@
+//댓글 리스트 (ul 태그)
 const commentList = document.querySelector(".comment-list");
-const URLSearch = new URLSearchParams(location.search);
-const movieId = URLSearch.get("id"); //type: string, URL(query)로 영화 id를 받아옴
 
+//url 쿼리로 가져온 id값 (?id=value)
+const URLSearch = new URLSearchParams(location.search);
+
+//type: string, URL(query)로 영화 id를 받아옴
+const movieId = URLSearch.get("id");
+
+//DOM로드 완료시 발생하는 이벤트, 로컬스토리지에 movieId가 key인 item이 없을시 로컬스토리지에 key=movieId, value=[] 인 item을 생성
 document.addEventListener("DOMContentLoaded", () => {
   if (!movieId) {
     return;
@@ -13,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-//로컬스토리지에서 영화id에 맞는 배열을 가져와서 변수에 담는 코드
+//로컬스토리지에서 key=movieId인 item을 가져와서 변수에 담는 코드
 let dataArr = JSON.parse(localStorage.getItem(movieId));
 
 //form submit 이벤트, 유저에게 입력받은 값을 localstorage에 저장
@@ -23,7 +29,7 @@ document.addEventListener("submit", (e) => {
   const password = document.querySelector("#password").value; //password 입력값
   const comment = document
     .querySelector("#comment")
-    .value.replaceAll(`\n`, `<br/>`); //comment 입력값 (댓글내용)
+    .value.replaceAll(`\n`, `<br/>`); //comment 입력값 (댓글내용), textarea에서 엔터키를 입력(\n)을 br태그로 변경하여 줄바꿈 구현
   const date = new Date();
   let minutes;
   if (String(date.getMinutes()).length == 1) {
