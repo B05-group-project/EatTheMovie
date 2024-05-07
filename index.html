@@ -1,50 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>movie-sample</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-            crossorigin="anonymous"
-        />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="video.css" />
+    <link rel="stylesheet" href="card-slider.css" />
+    <title>Eat the moive</title>
+  </head>
 
-        <link rel="stylesheet" href="./reset.css" />
-        <link rel="stylesheet" href="./style.css" />
-    </head>
+  <body>
+    <!-- 비디오 부분 div로 묶기 -->
+    <div style="display: flex; align-items: center; justify-content: center">
+      <!-- 슬라이드 이미지 -->
+      <div class="wrapper">
+        <!-- 슬라이드 이전 버튼 -->
+        <i id="left" class="fa-solid fa-angle-left">PREV</i>
+        <div class="carousel">
+          <img
+            data-key="J_xNjNeCSKE?si=OAk4WdZ4RbvDCBPb"
+            class="image"
+            id="img"
+            src="image/1Shawshank.jpg"
+            alt="img"
+            draggable="false"
+          />
+          <img
+            data-key="jTgNhvNhcP4?si=1Oea-iWEBh4kXwQk"
+            class="image"
+            id="img"
+            src="image/2The Apes.jpg"
+            alt="img"
+            draggable="false"
+          />
+          <img
+            data-key="QiBLSEfUn3M?si=QDfTsvtl-qrxV-Q2"
+            class="image"
+            id="img"
+            src="image/3Ghost.jpg"
+            alt="img"
+            draggable="false"
+          />
+          <img
+            data-key="ChEEkbARqM4?si=u6cQPMOUFsHzEoxx"
+            class="image"
+            id="img"
+            src="image/4When Morning.jpg"
+            alt="img"
+            draggable="false"
+          />
+          <img
+            data-key="EiCmnIaj4u8?si=YOdhzRyMvqyZYXB9"
+            class="image"
+            id="img"
+            src="image/5Inside.jpg"
+            alt="img"
+            draggable="false"
+          />
+          <img
+            data-key="rOTsNNf2Hj4?si=mMornnugutiGhNIZ"
+            class="image"
+            id="img"
+            src="image/6She.jpg"
+            alt="img"
+            draggable="false"
+          />
+        </div>
+        <!-- 슬라이드 다음 버튼 -->
+        <i id="right" class="fa-solid fa-angle-right">NEXT</i>
+      </div>
 
-    <body>
-        <header class="container">
-            <h1>영화 리스트</h1>
-        </header>
-        <div class="searchUI">
-            <div class="d-flex flex-wrap align-items-start justify-content-around justify-content-lg-center">
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 search-form" role="search">
-                    <input
-                        type="search"
-                        id="search-input"
-                        class="form-control form-control-dark text-bg-light"
-                        placeholder="영화를 검색하세요."
-                        aria-label="search"
-                    />
-                </form>
-                <button type="button" id="search-button" class="btn btn-light">
-                    <font style="vertical-align: inherit">
-                        <font style="vertical-align: inherit">검색하기</font>
-                    </font>
-                </button>
-            </div>
+      <!-- 모달창 -->
+      <div class="modal-bg hidden">
+        <div class="modal">
+          <iframe
+            class="video"
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/"
+            title="YouTube video player"
+            frameborder="1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
         </div>
-        <div class="movie-card" data-movie-id="1">
-            <section id="movie-container"></section>
+        <button class="button-close gray">Close</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3 class="top">현재 상영 중</h3>
+      <div id="card-slider">
+        <div id="now-playing-container" class="card-container">
+          <!-- 여기에 영화 카드가 동적으로 생성됩니다. -->
         </div>
-        <div id="pagination">
-            <button type="button" class="btn btn-light" id="prev-button">이전</button>
-            <button type="button" class="btn btn-light" id="next-button">다음</button>
+        <button id="now-playing-left" class="deals-paddle left">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="chevron-left"
+            class="svg-inline--fa fa-chevron-left fa-w-10"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"
+          >
+            <path
+              fill="currentColor"
+              d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+            ></path>
+          </svg>
+        </button>
+
+        <button id="now-playing-right" class="deals-paddle right">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="chevron-right"
+            class="svg-inline--fa fa-chevron-right fa-w-10"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"
+          >
+            <path
+              fill="currentColor"
+              d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="section">
+      <h3 class="top">인기 있는</h3>
+      <div id="card-slider">
+        <div id="popular-container" class="card-container">
+          <!-- 여기에 영화 카드가 동적으로 생성됩니다. -->
         </div>
-        <script src="movie.js"></script>
-    </body>
+        <button id="popular-left" class="deals-paddle left">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="chevron-left"
+            class="svg-inline--fa fa-chevron-left fa-w-10"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"
+          >
+            <path
+              fill="currentColor"
+              d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+            ></path>
+          </svg>
+        </button>
+
+        <button id="popular-right" class="deals-paddle right">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="chevron-right"
+            class="svg-inline--fa fa-chevron-right fa-w-10"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"
+          >
+            <path
+              fill="currentColor"
+              d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="section">
+      <h3 class="top">최고 평점</h3>
+      <div id="card-slider">
+        <div id="top-rated-container" class="card-container">
+          <!-- 여기에 영화 카드가 동적으로 생성됩니다. -->
+        </div>
+        <button id="top-rated-left" class="deals-paddle left">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="chevron-left"
+            class="svg-inline--fa fa-chevron-left fa-w-10"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"
+          >
+            <path
+              fill="currentColor"
+              d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+            ></path>
+          </svg>
+        </button>
+
+        <button id="top-rated-right" class="deals-paddle right">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="chevron-right"
+            class="svg-inline--fa fa-chevron-right fa-w-10"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"
+          >
+            <path
+              fill="currentColor"
+              d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="video.js"></script>
+    <script src="card-slider.js"></script>
+  </body>
 </html>
