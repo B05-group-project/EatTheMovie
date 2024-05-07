@@ -4,6 +4,7 @@ body {
   /* background-color: #f2f2f2; */
   background-color: black;
 }
+
 .all-container {
   max-width: 1000px;
   margin: 0 auto;
@@ -17,6 +18,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .poster-container {
   flex: 0 0 300px;
   margin-right: 20px;
@@ -29,16 +31,18 @@ body {
   width: 18vw;
   /* border-radius: 10px; */
 }
+
 .details-container {
   flex: 1;
 }
-h1,
-h2,
+
+.details-container > h1,
 p {
   margin: 0;
   padding: 0;
 }
-h1 {
+
+.details-container > h1 {
   color: #333;
   font-size: 24px;
   margin-top: 10px;
@@ -46,28 +50,15 @@ h1 {
   border-bottom: 2px solid #333;
   padding-bottom: 10px;
 }
-h2 {
-  color: #555;
-  font-size: 18px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-p {
+
+.details-container > p {
   margin-top: 10px;
   margin-bottom: 10px;
   color: #777;
   font-size: 16px;
   line-height: 1.5;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-ul li {
-  color: #777;
-  font-size: 16px;
-  margin-bottom: 5px;
-}
+
 input.back-btn {
   background: url("./src/free-icon-back-arrow-4510823.png");
   background-repeat: no-repeat;
