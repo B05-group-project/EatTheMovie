@@ -141,6 +141,7 @@ button:active {
 .comment-item > .comment-title-area {
   align-self: center;
   margin-top: 10px;
+  margin-bottom: 10px;
   width: 95%;
   display: flex;
   justify-content: end;
@@ -224,7 +225,8 @@ button:active {
   backdrop-filter: blur(10px);
   transition: all 0.3s;
 }
-/*모달창 숨기는 class명*/
+
+/*모달창 숨기는 css*/
 .hidden {
   opacity: 0;
   visibility: hidden;
