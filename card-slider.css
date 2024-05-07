@@ -23,8 +23,7 @@ body {
     display: flex; /* 버튼과 카드들을 가로로 정렬 */
     align-items: center; /* 세로 가운데 정렬 */
 }
-
-#movie-container {
+.card-container {
     width: 100%;
     display: flex;
     overflow-x: auto;
@@ -34,13 +33,12 @@ body {
 }
 
 .slider-card {
-    background-color: #ccc;
-    border: 1px solid #ccc;
     padding: 10px;
     border-radius: 5px;
 }
 
 .slider-card img {
+    box-shadow: 2px 2px 10px gainsboro;
     width: 200px;
     height: 300px;
     border-radius: 5px;
@@ -62,10 +60,10 @@ body {
     cursor: pointer;
 }
 
-.deals-scroll-left {
+.left {
     left: 5px; /* 왼쪽에 배치 */
 }
 
-.deals-scroll-right {
+.right {
     right: 5px; /* 오른쪽에 배치 */
 }
