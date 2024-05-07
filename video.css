@@ -8,7 +8,7 @@
   font-family: 'Poppins', sans-serif;
 }
 body{
-  display: flex;
+  /* display: flex; */
   padding: 0 35px;
   
   min-height: 100vh;
