@@ -186,11 +186,11 @@ body {
   }
 
   #search-UI {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: end;  
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
 
-  width: 100%;
-}
+    width: 100%;
+  }
 }
