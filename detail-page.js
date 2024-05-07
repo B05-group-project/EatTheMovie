@@ -14,7 +14,6 @@ const options = {
 fetch(`https://api.themoviedb.org/3/movie/${id}?language=ko-KR`, options)
   .then((response) => response.json())
   .then((response) => {
-    console.log(response);
     const $container = document.createElement("div");
     $container.classList.add("all-container");
 
@@ -39,6 +38,6 @@ fetch(`https://api.themoviedb.org/3/movie/${id}?language=ko-KR`, options)
             <p>런타임 : ${response.runtime}분</p>
             <p>개봉일 : ${response.release_date}</p>
         </div>`;
-    document.querySelector("body").append($container);
+    document.querySelector(".detail-space").append($container);
   })
   .catch((err) => console.error(err));
