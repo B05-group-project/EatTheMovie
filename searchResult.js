@@ -27,9 +27,12 @@ function addHeaderFunction() {
 }
 
 function addMainFunction() {
+  const observer = new IntersectionObserver(onIntersect, options);
+
   showSearchWord();
   setLanguageDefault();
   setLanguageFilterFunction();
+  observer.observe($listEnd);
   setMovieClick();
 }
 
@@ -87,16 +90,16 @@ function showSearchWord() {
   `;
 }
 
-function setLanguageDefault(){
+function setLanguageDefault() {
   $languageFilter.value = language;
 }
 
-function setLanguageFilterFunction(){
-  $languageFilter.addEventListener('change', ()=>{
+function setLanguageFilterFunction() {
+  $languageFilter.addEventListener("change", () => {
     const value = $languageFilter.options[$languageFilter.selectedIndex].value;
     localStorage.setItem("language", value);
     window.location.reload();
-  })
+  });
 }
 
 function setMovieClick() {
@@ -129,7 +132,9 @@ async function fetchGetData(url) {
 }
 
 function onIntersect(entries, observer) {
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=${language?language:`ko-KR`}&query=${word}&page=${page}`;
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=${
+    language ? language : `ko-KR`
+  }&query=${word}&page=${page}`;
   entries.forEach(async (entry) => {
     if (entry.isIntersecting) {
       page++;
@@ -158,11 +163,11 @@ function onIntersect(entries, observer) {
 }
 
 function makeMovieCard(movieInfo) {
-  const { id, poster_path, title } = movieInfo;
+  const { id, poster_path, title, popularity } = movieInfo;
   const moviePosterPath = `https://image.tmdb.org/t/p/w500${poster_path}`;
 
   return `
-    <div class="movie" data-movie-id="${id}">
+    <div class="movie" data-movie-id="${id}" data-popularity="${popularity}">
       <img src="${
         poster_path ? moviePosterPath : "icons/replaceMovie.png"
       }" onerror="this.onerror=null; this.src='icons/replaceMovie.png';">
@@ -173,6 +178,3 @@ function makeMovieCard(movieInfo) {
 
 addHeaderFunction();
 addMainFunction();
-
-const observer = new IntersectionObserver(onIntersect, options);
-observer.observe($listEnd);
