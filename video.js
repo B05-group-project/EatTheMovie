@@ -2,11 +2,75 @@ const carousel = document.querySelector(".carousel"),
   firstImg = carousel.querySelectorAll("img")[0],
   arrowIcons = document.querySelectorAll(".wrapper i");
 
+const word = new URL(location.href).searchParams.get("word");  
+const language = localStorage.getItem("language");
+
+const $headerTitle = document.getElementById("header-title");
+const $magnifier = document.querySelector(".magnifier");
+const $searchBar = document.querySelector("#search-input");
+const $searchBtn = document.getElementById("search-button");
+const $cancleBtn = document.querySelector("#cancle-button");
+
 let isDragStart = false,
   isDragging = false,
   prevPageX,
   prevScrollLeft,
   positionDiff;
+
+function addHeaderFunction() {
+  setHeaderTitleClick();
+  setSearchInputValue();
+  setSearchBtnFunction();
+  setSearchBarAnimation();
+}
+
+function setHeaderTitleClick() {
+  $headerTitle.addEventListener("click", () => {
+    window.location.href = `index.html`;
+  });
+}
+
+function setSearchInputValue() {
+  $searchBar.value = word;
+}
+
+function setSearchBtnFunction() {
+  //클릭으로 검색
+  $searchBtn.addEventListener("click", () => {
+    handleSearch();
+  });
+
+  //엔터 키로 검색
+  $searchBar.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      $searchBtn.click();
+      e.preventDefault();
+    }
+  });
+}
+
+function handleSearch() {
+  const searchTerm = $searchBar.value;
+  if (searchTerm) {
+    window.location.href = `searchResult.html?word=${searchTerm}`;
+  } else {
+    alert("검색어를 입력해주세요!");
+  }
+}
+
+function setSearchBarAnimation() {
+  $magnifier.addEventListener("mouseover", () => {
+    $searchBar.classList.add("expand");
+    $magnifier.classList.add("expand");
+    $cancleBtn.style.visibility = "visible";
+  });
+
+  $cancleBtn.addEventListener("click", () => {
+    $searchBar.classList.remove("expand");
+    $magnifier.classList.remove("expand");
+    $cancleBtn.style.visibility = "hidden";
+  });
+}
 
 const showHideIcons = () => {
   // 캐러셀 스크롤 왼쪽 값에 따른 이전/다음 아이콘 표시 및 숨기기
@@ -28,7 +92,10 @@ arrowIcons.forEach((icon) => {
 
 // 스크롤할 이미지가 남아 있지 않으면 여기에서 돌아온다
 const autoSlide = () => {
-  if ( carousel.scrollLeft - (carousel.scrollWidth - carousel.clientWidth) > -1 || carousel.scrollLeft <= 0)
+  if (
+    carousel.scrollLeft - (carousel.scrollWidth - carousel.clientWidth) > -1 ||
+    carousel.scrollLeft <= 0
+  )
     return;
 
   positionDiff = Math.abs(positionDiff); // positionDiff을 양수로 만들어준다
@@ -38,10 +105,12 @@ const autoSlide = () => {
 
   if (carousel.scrollLeft > prevScrollLeft) {
     // 사용자가 오른쪽으로 스크롤하는 경우
-    return (carousel.scrollLeft += positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff);
+    return (carousel.scrollLeft +=
+      positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff);
   }
   // 사용자가 왼쪽으로 스크롤하는 경우
-  carousel.scrollLeft -= positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
+  carousel.scrollLeft -=
+    positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
 };
 
 // 마우스 다운 이벤트 시 전역 변수 값 업데이트
@@ -80,7 +149,6 @@ carousel.addEventListener("touchmove", dragging);
 document.addEventListener("mouseup", dragStop);
 carousel.addEventListener("touchend", dragStop);
 
-
 // 모달창
 // 'use strict';
 const images = document.querySelectorAll(".image");
@@ -90,44 +158,32 @@ const embed = document.getElementById("modal-video");
 const iframe = document.querySelector(".video");
 
 //각각의 이미지에 모달창 불러오기
-for(let i = 0; i < images.length; i++) {
-  images[i].addEventListener("click", showModal)
+for (let i = 0; i < images.length; i++) {
+  images[i].addEventListener("click", showModal);
 }
 
 // openBtn.addEventListener("click", showModal);
 closeBtn.addEventListener("click", closeModal);
 
 //영상 호출
-const modalVideo = document.getElementById("img")
-for(let i = 0; i < modalVideo.length; i++) {
-  modalVideo[i].addEventListener("load", modalVideo)
+const modalVideo = document.getElementById("img");
+for (let i = 0; i < modalVideo.length; i++) {
+  modalVideo[i].addEventListener("load", modalVideo);
 }
 
 // 모달창 열기
 function showModal(e) {
   //iframe의 src를 불러와 key값을 적용해 해당 값의 영상링크를 불러온다.
-  iframe.src = `https://www.youtube.com/embed/${e.target.dataset.key}`
-    modal.classList.remove("hidden");
-    modal.classList.add("visible");
-    console.log(e.target.dataset.key)
+  iframe.src = `https://www.youtube.com/embed/${e.target.dataset.key}`;
+  modal.classList.remove("hidden");
+  modal.classList.add("visible");
+  console.log(e.target.dataset.key);
 }
 
 // 모달창 닫기
 function closeModal() {
-    modal.classList.add("hidden");
-    modal.classList.remove("visible");
+  modal.classList.add("hidden");
+  modal.classList.remove("visible");
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+addHeaderFunction();
