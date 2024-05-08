@@ -32,7 +32,7 @@ B5조, 꺼내 먹어요 입니다!
 
 * 상세보기
 
-<img width="800" alt="상세보기" src="https://github.com/B05-group-project/EatTheMovie/assets/72782380/7627618e-a72f-4ecd-8ff1-a719a2b5b3e7">
+<img width="600" alt="상세보기" src="https://github.com/B05-group-project/EatTheMovie/assets/72782380/7627618e-a72f-4ecd-8ff1-a719a2b5b3e7">
 
 * 상세보기 - 뒤로가기 기능
 
