@@ -89,7 +89,7 @@ function showSearchWord() {
     // 한글인 경우
     if (language === 'ko-KR') {
         $wordWrapper.innerHTML = `
-                <div id="search-word">인기있는</div>
+                <div id="search-word">인기순</div>
             `;
     } else {
         // 그 외의 경우, 즉 영어인 경우
