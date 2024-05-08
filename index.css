@@ -141,7 +141,7 @@ body {
 /* 상단 영상 파트  */
 #video-title {
     font-size: 20px;
-    margin-left: 20px;
+    margin-right: 50px;
     color: white;
 }
 
@@ -152,7 +152,7 @@ body {
 }
 
 .wrapper {
-    display: flex;
+    display: flexbox;
     max-width: 1200px;
     position: relative;
 }
@@ -190,7 +190,7 @@ body {
     overflow: hidden;
     white-space: nowrap;
     scroll-behavior: smooth;
-    margin: 100px;
+    /* margin: 100px; */
 }
 .carousel.dragging {
     cursor: grab;
@@ -222,10 +222,10 @@ body {
     }
 }
 #left {
-    margin-left: 75px;
+    margin-left: -50px;
 }
 #right {
-    margin-right: 75px;
+    margin-right: -30px;
 }
 /* image 호버 */
 .image {
@@ -247,6 +247,7 @@ body {
     text-align: center;
     transition: top 0.01s linear;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+    margin-top: 700px;
 }
 /* 버튼 닫기 호버 효과 */
 .button-close.gray:hover {
@@ -283,10 +284,11 @@ body {
     visibility: hidden;
 }
 .video {
-    height: 460px;
+    height: 500px;
     width: 860px;
+    margin-top: 250px;
 }
-
+/*  */
 .top {
     height: 50px;
     color: white;
