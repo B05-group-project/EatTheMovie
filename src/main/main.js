@@ -177,7 +177,6 @@ function showModal(e) {
   iframe.src = `https://www.youtube.com/embed/${e.target.dataset.key}`;
   modal.classList.remove("hidden");
   modal.classList.add("visible");
-  console.log(e.target.dataset.key);
 }
 
 // 모달창 닫기
