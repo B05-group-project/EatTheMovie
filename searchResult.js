@@ -169,8 +169,8 @@ function makeMovieCard(movieInfo) {
   return `
   <div class="movie" data-movie-id="${id}" data-popularity="${popularity}" ${page !== 1 ? `data-scroll`: ``}>
       <img src="${
-        poster_path ? moviePosterPath : "icons/replaceMovie.png"
-      }" onerror="this.onerror=null; this.src='icons/replaceMovie.png';">
+        poster_path ? moviePosterPath : "image/replaceMovie.png"
+      }" onerror="this.onerror=null; this.src='image/replaceMovie.png';">
       ${poster_path ? `` : `<div id="movie-title">${title}</div>`}
     </div>
   `;
