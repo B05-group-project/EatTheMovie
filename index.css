@@ -13,7 +13,6 @@ h3 {
     display: flex;
     justify-content: left;
     align-items: center;
-    /* text-shadow: 2px 1px 5px wheat; */
 }
 
 
@@ -40,7 +39,6 @@ h3 {
     font-weight: 700;
     color: yellow;
     cursor: pointer;
-    /* text-shadow: 0px 0px 10px #ddff74; */
 }
 
 #search-UI {
@@ -148,9 +146,7 @@ body {
 #video-title {
     font-size: 28px;
     margin-left: 44%;
-    /* margin-top: ; */
     color: white;
-    /* text-shadow: 0px 0px 10px wheat;; */
 }
 
 .video-wrapper {
@@ -199,7 +195,6 @@ body {
     overflow: hidden;
     white-space: nowrap;
     scroll-behavior: smooth;
-    /* margin: 100px; */
 }
 .carousel.dragging {
     cursor: grab;
@@ -279,9 +274,6 @@ body {
 /* 모달창 css */
 .modal-bg {
     position: absolute;
-    /* height: 50%;
-  width: 50%; */
-    /* background-color : rgb(255,255,255,0.5); */
     margin: auto;
     display: flex;
     align-items: center;
