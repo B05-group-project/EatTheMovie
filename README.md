@@ -49,7 +49,7 @@ B5조, 꺼내 먹어요 입니다!
 
 * 댓글기능
 
- ![상세페이지 댓글](https://github.com/B05-group-project/EatTheMovie/assets/164147591/c97edbc7-556e-4464-bdca-bab7fc26c19f)
+  ![상세페이지 댓글](https://github.com/B05-group-project/EatTheMovie/assets/164147591/c97edbc7-556e-4464-bdca-bab7fc26c19f)
 
 ### 검색 결과 페이지
 
