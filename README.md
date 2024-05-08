@@ -33,6 +33,10 @@ B5조, 꺼내 먹어요 입니다!
 
   ![기능구현](https://github.com/B05-group-project/EatTheMovie/assets/104831702/cd06b01f-c83b-457d-8894-68e869cf1edb)
 
+* 테마별 캐러셀 기능
+  
+  ![기능구현](https://github.com/B05-group-project/EatTheMovie/assets/144031936/01d20618-c0bd-49b2-9566-45d065e8833b)
+
 ### 상세 페이지
 
 * 상세보기
