@@ -85,19 +85,13 @@
 
 #cancle-button {
     visibility: hidden;
-    margin-right: 10px;
+    margin-right: 85px;
     height: 15px;
     width: 15px;
 
     cursor: pointer;
 }
 
-#language-filter {
-    padding: 5px;
-    background-color: black;
-    color: white;
-    border: none;
-}
 
 @media (max-width: 767px) {
     .header-container {
