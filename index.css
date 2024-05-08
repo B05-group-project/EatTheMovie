@@ -16,7 +16,6 @@ h3 {
     /* text-shadow: 2px 1px 5px wheat; */
 }
 
-
 .header-container {
     display: flex;
     flex-direction: row;
@@ -103,7 +102,6 @@ h3 {
 
     cursor: pointer;
 }
-
 
 @media (max-width: 767px) {
     .header-container {
@@ -300,13 +298,36 @@ body {
     margin-top: 250px;
 }
 /*  */
+.rowTitle {
+    text-decoration: none; /* 하이퍼링크의 밑줄 제거 */
+    display: flex;
+    align-items: end;
+}
+
 .top {
+    position: relative;
     height: 50px;
     color: white;
     margin-top: 5%;
     display: flex;
     justify-content: left;
     align-items: center;
+}
+
+.see-all-link {
+    font-size: 18px;
+    margin-left: auto;
+    text-decoration: none;
+    color: cornflowerblue;
+    margin-bottom: 30px;
+}
+
+.rowTitle .aro-row-header {
+    display: none;
+}
+
+.rowTitle:hover .aro-row-header {
+    display: block;
 }
 
 #card-slider {
