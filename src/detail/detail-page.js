@@ -24,7 +24,6 @@ fetch(`https://api.themoviedb.org/3/movie/${id}?language=ko-KR`, options)
       })
       .join(", ");
 
-    console.log(genre);
     $container.innerHTML = `
         <div class="poster-container">
             <img src="https://image.tmdb.org/t/p/w500/${response.poster_path}" alt="Movie Poster" class="movie-poster">
