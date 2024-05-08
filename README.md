@@ -45,7 +45,7 @@ B5조, 꺼내 먹어요 입니다!
 
 * 상세보기 - 뒤로가기 기능
 
-  ![--ezgif com-video-to-gif-converter](https://github.com/B05-group-project/EatTheMovie/assets/72782380/f1fa52de-b9b2-4111-9272-b464a5a3a941)
+  ![상세보기-뒤로가기 기능](https://github.com/B05-group-project/EatTheMovie/assets/72782380/f1fa52de-b9b2-4111-9272-b464a5a3a941)
 
 * 댓글기능
 
