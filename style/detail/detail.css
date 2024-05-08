@@ -3,7 +3,7 @@
   --border--1px--black: 1px solid black;
   --border--1px--white: 1px solid white;
   --border--2px--white: 2px solid white;
-  --background--default: #4d4d4d;
+  --background--default: #4d4d4d; /*#8BC34A*/
   --background--default--hover: white;
   --text-default: white;
   --text--default--hover: #2e2e2e;
@@ -93,9 +93,13 @@ button:active {
 .comment-nav > button {
   color: var(--text-default);
   width: 70px;
+  margin-right: 5px;
 }
 .comment-nav > button:hover {
   color: var(--text--default--hover);
+}
+.comment-nav > button:active {
+  color: white;
 }
 
 .comment-area {
@@ -155,6 +159,13 @@ button:active {
   margin-right: 8px;
   color: #bfbfbf;
   border-right: 1px solid rgba(158, 158, 158, 0.5);
+}
+
+.edit-status {
+  align-content: center;
+  margin-right: 5px;
+  font-size: 10px;
+  color: #bfbfbf;
 }
 .edit-btn {
   width: 70px;

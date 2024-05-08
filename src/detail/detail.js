@@ -68,14 +68,19 @@ document.addEventListener("submit", (e) => {
 //localstrage에서 Item을 가져와서 댓글형태로 화면에 뿌림
 dataArr.forEach((e, i) => {
   const li = document.createElement("li");
+  let editStatus = e.editDate ? "수정됨" : "";
+  let tempDate = e.editDate ? e.editDate : e.date;
   li.className = "comment-item";
   li.id = "comment" + i;
   li.innerHTML = `
         <div class="comment-title-area">
-        <span class=comment-num>${i}</span><h4>${e.writer}</h4> <span class=pre-date>${e.date}</span><button class=edit-btn id=edit${i}>수정</button> <button class=delete-btn id=del${i}>🗑️</button>
+        <span class=comment-num>${i}</span><h4>${e.writer}</h4> <span class=pre-date><span class=edit-status>${editStatus}</span>${tempDate}</span><button class=edit-btn id=edit${i}>수정</button> <button class=delete-btn id=del${i}>🗑️</button>
         </div>
         <p>${e.comment}</p>
   `;
+
+  if (e.editDate) {
+  }
   commentList.prepend(li);
 
   //수정버튼 클릭시 발생하는 이벤트(수정 양식 모달창 띄움)
@@ -102,6 +107,7 @@ dataArr.forEach((e, i) => {
       `\n`
     );
 
+    //수정버튼 클릭시 localStorage에서 댓글을 찾아서 데이터 수정
     document.querySelector("#modal-edit-btn").addEventListener("click", () => {
       const newWriter = modal.querySelector("#edit-writer").value;
       const newPassword = modal.querySelector("#edit-password").value;
@@ -109,9 +115,24 @@ dataArr.forEach((e, i) => {
         .querySelector("#edit-comment")
         .value.replaceAll(`\n`, `<br/>`);
 
+      //수정버튼 클릭시 날짜 갱신해서 preDate에 담는 코드
+      const date = new Date();
+      let minutes;
+      if (String(date.getMinutes()).length == 1) {
+        minutes = "0" + date.getMinutes();
+      } else {
+        minutes = date.getMinutes();
+      }
+
+      const preDate = `${date.getFullYear()}/${
+        date.getMonth() + 1
+      }/${date.getDate()} ${date.getHours()}:${minutes}`;
+
       e.writer = newWriter;
       e.password = newPassword;
       e.comment = newComment;
+      e.editDate = preDate;
+
       dataArr[i] = e;
       localStorage.setItem(movieId, JSON.stringify(dataArr));
 
@@ -149,8 +170,8 @@ document.querySelector("#modal-cancel-btn").addEventListener("click", () => {
   }
 });
 
-//과거순으로 바꾸는 버튼
-document.querySelector(".sort-latest-btn").addEventListener("click", () => {
+//댓글을 글번호순으로 정렬하는 버튼이벤트
+document.querySelector(".sort-number-btn").addEventListener("click", () => {
   let liNodes = [...document.querySelectorAll(".comment-item")].reverse();
   let liNode = document.querySelectorAll(".comment-item");
   let liList = document.querySelector(".comment-list");
