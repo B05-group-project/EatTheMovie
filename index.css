@@ -6,6 +6,17 @@
     font-style: normal;
 }
 
+h3 {
+    margin: 25px;
+    font-size: 28px;
+    height: 50px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    /* text-shadow: 2px 1px 5px wheat; */
+}
+
+
 .header-container {
     display: flex;
     flex-direction: row;
@@ -25,10 +36,11 @@
 }
 
 #header-title {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 700;
     color: yellow;
     cursor: pointer;
+    /* text-shadow: 0px 0px 10px #ddff74; */
 }
 
 #search-UI {
@@ -134,15 +146,18 @@ body {
 }
 /* 상단 영상 파트  */
 #video-title {
-    font-size: 20px;
-    margin-right: 50px;
+    font-size: 28px;
+    margin-left: 44%;
+    /* margin-top: ; */
     color: white;
+    /* text-shadow: 0px 0px 10px wheat;; */
 }
 
 .video-wrapper {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    margin-top: 50px;
 }
 
 .wrapper {
@@ -216,9 +231,11 @@ body {
     }
 }
 #left {
+    margin-top: 45px;
     margin-left: -50px;
 }
 #right {
+    margin-top: 45px;
     margin-right: -30px;
 }
 /* image 호버 */
@@ -286,7 +303,7 @@ body {
 .top {
     height: 50px;
     color: white;
-
+    margin-top: 5%;
     display: flex;
     justify-content: left;
     align-items: center;
