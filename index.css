@@ -298,13 +298,17 @@ body {
     margin-top: 250px;
 }
 /*  */
-.rowTitle {
+a {
     text-decoration: none; /* 하이퍼링크의 밑줄 제거 */
+    color: white;
+}
+.rowTitle {
     display: flex;
     align-items: end;
 }
 
 .top {
+    text-decoration: none; /* 하이퍼링크의 밑줄 제거 */
     position: relative;
     height: 50px;
     color: white;
@@ -315,6 +319,9 @@ body {
 }
 
 .see-all-link {
+    display: flex;
+    align-items: end;
+    text-decoration: none; /* 하이퍼링크의 밑줄 제거 */
     font-size: 18px;
     margin-left: auto;
     text-decoration: none;
@@ -346,6 +353,7 @@ body {
 .slider-card {
     padding: 10px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .slider-card img {
