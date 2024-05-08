@@ -30,7 +30,7 @@ button {
   height: 230px;
   width: 800px;
   border: 2px solid black;
-  border-radius: 5px;
+  border-radius: 10px;
   padding-bottom: 15px;
   color: var(--text-default);
 }
@@ -128,7 +128,7 @@ button:active {
   display: flex;
   flex-direction: column;
   border: var(--border--btn--white);
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .comment-item > .comment-title-area > h4 {
   margin: 0;
