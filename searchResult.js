@@ -137,7 +137,7 @@ function onIntersect(entries, observer) {
   }&query=${word}&page=${page}`;
   entries.forEach(async (entry) => {
     if (entry.isIntersecting) {
-      page++;
+
       const data = await fetchGetData(url);
       const movies = data.results;
 
@@ -155,9 +155,9 @@ function onIntersect(entries, observer) {
 
       //scroll시 fadeIn 애니메이션
       ScrollOut({
-        targets: ".movie",
         once: true,
       });
+      page++;
     }
   });
 }
@@ -167,7 +167,7 @@ function makeMovieCard(movieInfo) {
   const moviePosterPath = `https://image.tmdb.org/t/p/w500${poster_path}`;
 
   return `
-    <div class="movie" data-movie-id="${id}" data-popularity="${popularity}">
+  <div class="movie" data-movie-id="${id}" data-popularity="${popularity}" ${page !== 1 ? `data-scroll`: ``}>
       <img src="${
         poster_path ? moviePosterPath : "icons/replaceMovie.png"
       }" onerror="this.onerror=null; this.src='icons/replaceMovie.png';">

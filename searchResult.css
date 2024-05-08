@@ -156,12 +156,12 @@ body {
   height: auto;
 }
 
-.movie[data-scroll] {
+[data-scroll] {
   opacity: 0;
   transition: opacity 1s;
 }
 
-.movie[data-scroll="in"] {
+[data-scroll="in"] {
   opacity: 1;
 }
 
