@@ -8,7 +8,7 @@ B5조, 꺼내 먹어요 입니다!
 
 <br />
 
-## 👥 팀원소개 ??
+## 👥 팀원소개
 
 | 신혜훤 | 서주환 | 엄경원 | 김형빈 | 신자영 |
 | :---: | :---: | :---: | :---: | :---: |
@@ -30,7 +30,7 @@ B5조, 꺼내 먹어요 입니다!
 
 <br />
 
-## 🔗 링크 ??
+## 🔗 링크
 ### [✨ NOTION](https://teamsparta.notion.site/B-05-1cddea8d779149269e215f7d715abe46)
 ### [✨ FIGMA](https://www.figma.com/file/hYZbrWyf0l9aXULKD0AJIx?embed_host=notion&kind=file&mode=design&node-id=0-1&t=ri8AzOkHKC5KwFMk-0&type=design&viewer=1)
 
