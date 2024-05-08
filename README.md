@@ -13,7 +13,7 @@ B5조, 꺼내 먹어요 입니다!
 | 신혜훤 | 서주환 | 엄경원 | 김형빈 | 신자영 |
 | :---: | :---: | :---: | :---: | :---: |
 | <img src="https://avatars.githubusercontent.com/hb9901" width="200"> | <img src="https://avatars.githubusercontent.com/hb9901" width="200"> | <img src="https://avatars.githubusercontent.com/hb9901" width="200"> | <img src="https://avatars.githubusercontent.com/hb9901" width="200"> | <img src="https://avatars.githubusercontent.com/hb9901" width="200"> |
-| 조장 | 부조장 | 팀원 | 팀원 | 팀원 |
+| 리더 | 부리더 | 팀원 | 팀원 | 팀원 |
 | [hb9901](https://github.com/hb9901) | [hb9901](https://github.com/hb9901) | [hb9901](https://github.com/hb9901) | [hb9901](https://github.com/hb9901)|  [hb9901](https://github.com/hb9901) |    
 
 
