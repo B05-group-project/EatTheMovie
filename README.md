@@ -12,9 +12,9 @@ B5조, 꺼내 먹어요 입니다!
 
 | 신혜훤 | 서주환 | 염경원 | 김형빈 | 신자영 |
 | :---: | :---: | :---: | :---: | :---: |
-| <img src="https://avatars.githubusercontent.com/shin1501020" width="200"> | <img src="https://avatars.githubusercontent.com/JoohwanSeo" width="200"> | <img src="https://avatars.githubusercontent.com/YCDM03" width="200"> | <img src="https://avatars.githubusercontent.com/hb9901" width="200"> | <img src="https://avatars.githubusercontent.com/hb9901" width="200"> |
+| <img src="https://avatars.githubusercontent.com/shin1501020" width="200"> | <img src="https://avatars.githubusercontent.com/JoohwanSeo" width="200"> | <img src="https://avatars.githubusercontent.com/YCDM03" width="200"> | <img src="https://avatars.githubusercontent.com/hb9901" width="200"> | <img src="https://avatars.githubusercontent.com/tpring" width="200"> |
 | 리더 | 부리더 | 팀원 | 팀원 | 팀원 |
-| [shin1501020](https://github.com/shin1501020) | [JoohwanSeo](https://github.com/JoohwanSeo) | [YCDM03](https://github.com/YCDM03) | [hb9901](https://github.com/hb9901)|  [hb9901](https://github.com/hb9901) |    
+| [shin1501020](https://github.com/shin1501020) | [JoohwanSeo](https://github.com/JoohwanSeo) | [YCDM03](https://github.com/YCDM03) | [hb9901](https://github.com/hb9901)|  [tpring](https://github.com/tpring) |    
 
 
 
