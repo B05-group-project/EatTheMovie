@@ -38,7 +38,7 @@ function addMainFunction() {
 
 function setHeaderTitleClick() {
     $headerTitle.addEventListener('click', () => {
-        window.location.href = `../index.html`;
+        window.location.href = `index.html`;
     });
 }
 
@@ -64,7 +64,7 @@ function setSearchBtnFunction() {
 function handleSearch() {
     const searchTerm = $searchBar.value;
     if (searchTerm) {
-        window.location.href = `searchResult.html?word=${searchTerm}`;
+        window.location.href = `search-result.html?word=${searchTerm}`;
     } else {
         alert('검색어를 입력해주세요!');
     }
@@ -89,12 +89,12 @@ function showSearchWord() {
     // 한글인 경우
     if (language === 'ko-KR') {
         $wordWrapper.innerHTML = `
-                <div id="search-word">평점순</div>
+                <div id="search-word">인기순</div>
             `;
     } else {
         // 그 외의 경우, 즉 영어인 경우
         $wordWrapper.innerHTML = `
-                <div id="search-word">Top-Rated</div>
+                <div id="search-word">Popular</div>
             `;
     }
 }
@@ -141,7 +141,7 @@ async function fetchGetData(url) {
 }
 
 function onIntersect(entries, observer) {
-    const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=${
+    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=${
         language ? language : `ko-KR`
     }&page=${page}`;
     entries.forEach(async (entry) => {
@@ -175,13 +175,13 @@ function makeMovieCard(movieInfo) {
     const moviePosterPath = `https://image.tmdb.org/t/p/w500${poster_path}`;
 
     return `
-  <div class="movie" data-movie-id="${id}" data-popularity="${popularity}" ${page !== 1 ? `data-scroll` : ``}>
-      <img src="${
-          poster_path ? moviePosterPath : '../image/replaceMovie.png'
-      }" onerror="this.onerror=null; this.src='../image/replaceMovie.png';">
-      ${poster_path ? `` : `<div id="movie-title">${title}</div>`}
+    <div class="movie" data-movie-id="${id}" data-popularity="${popularity}" ${page !== 1 ? `data-scroll` : ``}>
+        <img src="${
+            poster_path ? moviePosterPath : '../image/replaceMovie.png'
+        }" onerror="this.onerror=null; this.src='../image/replaceMovie.png';">
+        ${poster_path ? `` : `<div id="movie-title">${title}</div>`}
     </div>
-  `;
+    `;
 }
 
 addHeaderFunction();

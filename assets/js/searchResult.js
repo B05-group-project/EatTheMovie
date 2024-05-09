@@ -38,7 +38,7 @@ function addMainFunction() {
 
 function setHeaderTitleClick() {
   $headerTitle.addEventListener("click", () => {
-    window.location.href = `../index.html`;
+    window.location.href = `index.html`;
   });
 }
 
@@ -64,7 +64,7 @@ function setSearchBtnFunction() {
 function handleSearch() {
   const searchTerm = $searchBar.value;
   if (searchTerm) {
-    window.location.href = `searchResult.html?word=${searchTerm}`;
+    window.location.href = `search-result.html?word=${searchTerm}`;
   } else {
     alert("검색어를 입력해주세요!");
   }

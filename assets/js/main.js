@@ -52,7 +52,7 @@ function setSearchBtnFunction() {
 function handleSearch() {
   const searchTerm = $searchBar.value;
   if (searchTerm) {
-    window.location.href = `./page/searchResult.html?word=${searchTerm}`;
+    window.location.href = `search-result.html?word=${searchTerm}`;
   } else {
     alert("검색어를 입력해주세요!");
   }
@@ -275,7 +275,7 @@ function displayMovies(url, containerId, category) {
             container.querySelectorAll('.slider-card').forEach((card) => {
                 card.addEventListener('click', function () {
                     const movieId = this.dataset.movieId;
-                    window.location.href = `page/detail.html?id=${movieId}`;
+                    window.location.href = `detail.html?id=${movieId}`;
                 });
             });
 
