@@ -154,24 +154,27 @@ body {
     padding: 0;
     box-sizing: border-box;
     margin-top: 50px;
+    align-items: center;
 }
 
 .wrapper {
     display: flexbox;
     max-width: 1200px;
-    position: relative;
+    width: 100%;
+    position: sticky;
+    align-items: center;
 }
 .wrapper i {
     top: 50%;
     height: 44px;
     width: 44px;
-    color: #343f4f;
+    color: white;
     cursor: pointer;
     font-size: 1.15rem;
     position: absolute;
     text-align: center;
     line-height: 44px;
-    background: #fff;
+   
     border-radius: 50%;
     transform: translateY(-50%);
     transition: transform 0.1s linear;
@@ -211,6 +214,7 @@ body {
     width: calc(100% / 3);
     position: relative;
     width: 220px;
+    
 }
 .carousel img:first-child {
     margin-left: 0px;
