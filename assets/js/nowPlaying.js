@@ -38,7 +38,7 @@ function addMainFunction() {
 
 function setHeaderTitleClick() {
     $headerTitle.addEventListener('click', () => {
-        window.location.href = `../index.html`;
+        window.location.href = `index.html`;
     });
 }
 
@@ -64,7 +64,7 @@ function setSearchBtnFunction() {
 function handleSearch() {
     const searchTerm = $searchBar.value;
     if (searchTerm) {
-        window.location.href = `searchResult.html?word=${searchTerm}`;
+        window.location.href = `search-result.html?word=${searchTerm}`;
     } else {
         alert('검색어를 입력해주세요!');
     }
@@ -85,16 +85,15 @@ function setSearchBarAnimation() {
 }
 
 function showSearchWord() {
-    // "word" 변수가 없는 경우
     // 한글인 경우
     if (language === 'ko-KR') {
         $wordWrapper.innerHTML = `
-                <div id="search-word">인기순</div>
+                <div id="search-word">현재 상영중</div>
             `;
     } else {
         // 그 외의 경우, 즉 영어인 경우
         $wordWrapper.innerHTML = `
-                <div id="search-word">Popular</div>
+                <div id="search-word">Now-Playing</div>
             `;
     }
 }
@@ -141,7 +140,7 @@ async function fetchGetData(url) {
 }
 
 function onIntersect(entries, observer) {
-    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=${
+    const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=${
         language ? language : `ko-KR`
     }&page=${page}`;
     entries.forEach(async (entry) => {
