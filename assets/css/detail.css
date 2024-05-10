@@ -154,7 +154,7 @@ button:active {
 }
 
 .modal {
-  position: absolute;
+  position: fixed;
   background-color: var(--background--default);
   top: 50%;
   left: 50%;
