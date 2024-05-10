@@ -182,9 +182,6 @@ body {
 .wrapper i:active {
     transform: translateY(-50%) scale(0.9);
 }
-.wrapper i:hover {
-    background: #f2f2f2;
-}
 .wrapper i:first-child {
     left: -22px;
     display: none;
@@ -247,17 +244,16 @@ body {
 
 /* 동영상 닫기 버튼  */
 .button-close {
-    position: relative;
-    display: inline-block;
+    position:relative;
+    display:grid;
     font-size: 20px;
     padding: 5px 5px;
     color: white;
-    margin: 400px 0px 0px 5px;
     border-radius: 6px;
     text-align: center;
     transition: top 0.01s linear;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
-    margin-top: 700px;
+    margin-left: 840px;
 }
 /* 버튼 닫기 호버 효과 */
 .button-close.gray:hover {
@@ -282,7 +278,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2;
+    padding-right: 10px;
 }
+#out-line {
+    width: 100%;
+    padding: 100%;
+    
+}
+
 .visible {
     visibility: visible;
 }
@@ -292,8 +296,12 @@ body {
 }
 .video {
     height: 500px;
-    width: 860px;
-    margin-top: 250px;
+    width: 900px;
+    margin-top: 20cap;
+}
+
+.section {
+    z-index: 1;
 }
 /*  */
 a {
