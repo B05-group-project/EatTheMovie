@@ -136,7 +136,7 @@ dataArr.forEach((e, i) => {
       document.querySelector(".modal-overlay").className =
         "modal-overlay hidden";
       document.querySelector(".modal").className = "modal hidden";
-      // location.reload();
+      location.reload();
     });
   });
 
