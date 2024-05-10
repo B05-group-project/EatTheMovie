@@ -143,7 +143,6 @@ document.addEventListener('mouseup', dragStop);
 carousel.addEventListener('touchend', dragStop);
 
 // 모달창
-// 'use strict';
 const images = document.querySelectorAll('.image');
 const closeBtn = document.querySelector('.button-close');
 const modal = document.querySelector('.modal-bg');
@@ -177,6 +176,16 @@ function closeModal() {
     modal.classList.add('hidden');
     modal.classList.remove('visible');
 }
+
+// 외부 영역 클릭시, 팝업 닫기
+modal.addEventListener('click', e=>{
+    const outsideClose = e.target;
+    if(outsideClose.classList.contains('modal')){
+     modal.classList.add('hidden');
+     modal.classList.remove('visible');
+    }
+ });
+
 
 addHeaderFunction();
 
