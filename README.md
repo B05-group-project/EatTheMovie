@@ -48,6 +48,7 @@ B5조, 꺼내 먹어요 입니다!
   ![상세보기-뒤로가기 기능](https://github.com/B05-group-project/EatTheMovie/assets/72782380/f1fa52de-b9b2-4111-9272-b464a5a3a941)
 
 * 댓글기능
+* 
   ![상세페이지 댓글](https://github.com/B05-group-project/EatTheMovie/assets/164147591/a798776d-228a-4954-a704-b6f96a855b0a)
 
 ### 검색 결과 페이지
