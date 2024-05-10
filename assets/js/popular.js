@@ -175,10 +175,12 @@ function makeMovieCard(movieInfo) {
     const moviePosterPath = `https://image.tmdb.org/t/p/w500${poster_path}`;
 
     return `
-    <div class="movie" data-movie-id="${id}" data-popularity="${popularity}" ${page !== 1 ? `data-scroll` : ``}>
+    <div class="movie" data-movie-id="${id}" data-popularity="${popularity}" ${
+      page !== 1 ? `data-scroll` : ``
+    }>
         <img src="${
-            poster_path ? moviePosterPath : '../image/replaceMovie.png'
-        }" onerror="this.onerror=null; this.src='../image/replaceMovie.png';">
+          poster_path ? moviePosterPath : "assets/replaceMovie.png"
+        }" onerror="this.onerror=null; this.src='assets/replaceMovie.png';">
         ${poster_path ? `` : `<div id="movie-title">${title}</div>`}
     </div>
     `;
