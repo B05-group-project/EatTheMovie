@@ -13,62 +13,13 @@ body {
   background-color: black;
   overflow-y: auto;
 }
-/*페이지 내 모든 버튼에 기본 색상+테두리+배경색*/
+/*페이지 내 모든 버튼에 기본 색상+테두리+배경색 적용*/
 button {
   background-color: var(--background--default);
   color: var(--text--default);
   border: var(--border--1px--white);
   border-radius: 5px;
 }
-
-.comment-form {
-  box-sizing: border-box;
-  background-color: var(--background--default);
-  display: flex;
-  flex-direction: column;
-  margin: 20px auto;
-  height: 230px;
-  width: 800px;
-  border: 2px solid black;
-  border-radius: 10px;
-  padding-bottom: 15px;
-  color: var(--text-default);
-}
-
-.comment-form > h2 {
-  margin: 0;
-  margin-top: 5px;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: 900;
-}
-.input-user-infomation {
-  width: 750px;
-  margin: 10px 10px;
-  align-self: center;
-  display: flex;
-  align-items: center;
-}
-.writer-input {
-  border: var(--border--input--black);
-  height: 24px;
-  border-radius: 3px;
-  margin-left: 5px;
-  margin-right: 10px;
-}
-.password-input {
-  border: var(--border--input--black);
-  border-radius: 3px;
-  height: 24px;
-  margin-left: 5px;
-  margin-right: 10px;
-}
-.write-btn {
-  margin-left: auto;
-  width: 70px;
-  height: 32px;
-}
-
 button:hover {
   border: var(--border--1px--black);
   border-radius: 5px;
@@ -80,11 +31,37 @@ button:active {
   background-color: var(--background--default);
   color: var(--text--default);
 }
+.add-comment-btn {
+  display: block;
+  margin: 0px auto;
+  margin-top: 40px;
+  width: 300px;
+  height: 50px;
+  font-size: 1rem;
+  color: var(--text-default);
+}
+
+.comment-form > h2 {
+  margin: 0;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.modal-btn {
+  margin-left: auto;
+  width: 70px;
+  height: 32px;
+}
+
 .comment-nav {
   width: 800px;
-  margin: 0 auto;
+  margin: 30px auto;
+  padding-bottom: 5px;
   display: flex;
   justify-content: end;
+  border-bottom: var(--border--1px--white);
 }
 .pre-date {
   align-content: center;
@@ -100,15 +77,6 @@ button:active {
 }
 .comment-nav > button:active {
   color: white;
-}
-
-.comment-area {
-  margin: 0px 10px;
-  width: 750px;
-  resize: none;
-  align-self: center;
-  border: var(--border--2px--white);
-  border-radius: 5px;
 }
 
 .comment-list {
@@ -184,8 +152,9 @@ button:active {
 .delete-btn:hover {
   border-radius: 16px;
 }
+
 .modal {
-  position: fixed;
+  position: absolute;
   background-color: var(--background--default);
   top: 50%;
   left: 50%;
